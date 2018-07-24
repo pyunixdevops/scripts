@@ -1,13 +1,22 @@
 #!/bin/sh
 
-apt -y update
-apt -y upgrade
-apt -y install software-properties-common
+op=$1
 
-apt-add-repository ppa:ansible/ansible
+if [ $os = "centos" ]; then
 
-apt -y update
+    yum -y install epel-release
+    yum -y install ansible
 
-apt -y install ansible
+elif [ $os = "ubuntu" ]; then
+    apt -y update
+    apt -y upgrade
+    apt -y install software-properties-common
+
+    apt-add-repository ppa:ansible/ansible
+
+    apt -y update
+
+    apt -y install ansible
+fi
 
 ansible --version
