@@ -1,0 +1,83 @@
+# Instructions to setup Ansible-server and Ansible-clients
+
+1. Install gitbash on Windows or install git on Linux
+clone this repo to your /export directory
+"git clone https://github.com/pyunixdevops/scripts"
+
+2. Create your ssh-keys(private key + public key) for your Host machine
+"ssh-keygen -t rsa" - Leave all the passwords empty
+- Post: Copy ssh public key to digital ocean account - Profile->Security settings
+"cat ~/.ssh/id_rsa.pub" and copy the contents
+
+3. Create your Ansible-server host on Digital Ocean Cloud
+"Refer to ansible-setup.yml"
+- Pre: Copy your ssh keys to your Digital ocean account
+- Digital_Ocean_Account - https://try.digitalocean.com/performance/?refcode=8bb6568f16d8&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste#signup
+-Post: Make a note of the IP addr - IP_ANS_SERVER
+
+4. Run ssh-keyscan to add your host to known_hosts.
+"ssh-keyscan -H $IP_ANS_SERVER >> ~/.ssh/known_hosts 2>&1"
+
+5. Login to Ansible-server(Droplet1) from your Windows/Linux(Physical-host)
+"ssh $IP_ANS_SERVER"
+
+6. Create ssh keys(follow step #2) and copy it to Digital Ocean.
+Pre: Login to Ansible-server host should be successful
+Post: You should have two ssh public keys copied to Digital ocean Security settings.
+
+7. Create your Ansible-clients1(Two Ubuntu Droplets) on Digital ocean
+Pre: Select both the ssh keys before creating the Ansible-clients1 Droplets
+Post: Make a note of the IP addr - IP_ANS_CLIENT1 and IP_ANS_CLIENT2
+
+8. Create your Ansible-clients2(Two CentOS Droplets) on Digital ocean
+Pre: Select both the ssh keys before creating the Ansible-clients2 Droplets
+Post: Make a note of the IP addr - IP_ANS_CLIENT3 and IP_ANS_CLIENT4
+
+9. Make sure you have 5 Droplets created on Digital ocean
+Ansible-server: Ubuntu - 1
+Ansible-clients1: Ubuntu - 2
+Ansible-clients2: CentOS - 2
+
+10. Assign client IP addr to variables in both Droplet1 and Physical host
+export IP_ANS_CLIENT1="206.189.128.18"
+export IP_ANS_CLIENT2="206.189.128.22"
+export IP_ANS_CLIENT3="206.189.132.62"
+export IP_ANS_CLIENT4="206.189.136.38"
+
+11. Add your IP addr of clients in both Droplet1 and Physical host
+cat > /tmp/ip_clients << EOF
+$IP_ANS_CLIENT1
+$IP_ANS_CLIENT2
+$IP_ANS_CLIENT3
+$IP_ANS_CLIENT4
+EOF
+
+12. Add IP addr of all clients(4) using ssh-keyscan to known_hosts
+"for host in `cat /tmp/ip_clients`; do ssh-keyscan -H $host >> ~/.ssh/known_hosts 2>&1 ; done"
+
+########################################
+Ansible-Server-Clients-Setup-Details
+---
+- host1: 
+    host_type: Ansible-server
+    os_type: Ubuntu
+    rel_version: 16.04
+    ram_size: 4 gigs or more
+    nof_inst: 1
+    cloud_type: Digital_Ocean
+
+- host2:
+    host_type: Ansible-clients1
+    os_type: Ubuntu
+    rel_version: 16.04
+    ram_size: 2 gigs or more
+    nof_inst: 2
+    cloud_type: Digital_Ocean
+
+- host3:
+    host_type: Ansible-clients2
+    os_type: CentOS
+    rel_version: 7.5
+    ram_size: 2 gigs or more
+    nof_inst: 2
+    cloud_type: Digital_Ocean

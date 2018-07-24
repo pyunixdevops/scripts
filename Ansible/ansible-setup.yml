@@ -1,0 +1,24 @@
+---
+- host1: 
+    host_type: Ansible-server
+    os_type: Ubuntu
+    rel_version: 16.04
+    ram_size: 4 gigs or more
+    nof_inst: 1
+    cloud_type: Digital_Ocean
+
+- host2:
+    host_type: Ansible-clients
+    os_type: Ubuntu
+    rel_version: 16.04
+    ram_size: 2 gigs or more
+    nof_inst: 2
+    cloud_type: Digital_Ocean
+
+- host3:
+    host_type: Ansible-clients
+    os_type: CentOS
+    rel_version: 7.5
+    ram_size: 2 gigs or more
+    nof_inst: 2
+    cloud_type: Digital_Ocean
