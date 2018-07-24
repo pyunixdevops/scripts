@@ -1,6 +1,6 @@
 #!/bin/sh
 
-op=$1
+os=$1
 
 if [ $os = "centos" ]; then
 
