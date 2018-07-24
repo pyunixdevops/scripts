@@ -1,0 +1,11 @@
+---
+- hosts: test1
+  tasks:
+    - name: Installs nginx web server
+      apt: name=apache2 state=present update_cache=true
+      notify:
+        - start nginx
+
+  handlers:
+    - name: start nginx
+      service: name=nginx state=started

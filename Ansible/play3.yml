@@ -1,0 +1,11 @@
+- hosts: test1
+  tasks:
+  - name: Install apache2
+    apt:
+      name: apache2
+      state: present
+
+  - name: Copy files
+    template:
+       src: play1.yml
+       dest: /var/www/html/play.yml

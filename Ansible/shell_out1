@@ -1,0 +1,18 @@
+Using /etc/ansible/ansible.cfg as config file
+Loaded callback minimal of type stdout, v2.0
+<139.59.80.209> ESTABLISH SSH CONNECTION FOR USER: None
+<139.59.80.209> SSH: EXEC ssh -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/ansible-ssh-%h-%p-%r -tt 139.59.80.209 '( umask 22 && mkdir -p "$( echo $HOME/.ansible/tmp/ansible-tmp-1531185280.27-251164684939244 )" && echo "$( echo $HOME/.ansible/tmp/ansible-tmp-1531185280.27-251164684939244 )" )'
+<139.59.80.209> PUT /tmp/tmpPAIK3P TO /root/.ansible/tmp/ansible-tmp-1531185280.27-251164684939244/ping
+<139.59.80.209> SSH: EXEC sftp -b - -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/ansible-ssh-%h-%p-%r '[139.59.80.209]'
+<139.59.80.209> ESTABLISH SSH CONNECTION FOR USER: None
+<139.59.80.209> SSH: EXEC ssh -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/ansible-ssh-%h-%p-%r -tt 139.59.80.209 'LANG=en_IN LC_ALL=en_IN LC_MESSAGES=en_IN /usr/bin/python /root/.ansible/tmp/ansible-tmp-1531185280.27-251164684939244/ping; rm -rf "/root/.ansible/tmp/ansible-tmp-1531185280.27-251164684939244/" > /dev/null 2>&1'
+139.59.80.209 | SUCCESS => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "data": null
+        }, 
+        "module_name": "ping"
+    }, 
+    "ping": "pong"
+}

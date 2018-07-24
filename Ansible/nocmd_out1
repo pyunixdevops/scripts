@@ -1,0 +1,11 @@
+Using /etc/ansible/ansible.cfg as config file
+Loaded callback minimal of type stdout, v2.0
+<139.59.80.209> ESTABLISH SSH CONNECTION FOR USER: None
+<139.59.80.209> SSH: EXEC ssh -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/ansible-ssh-%h-%p-%r -tt 139.59.80.209 '( umask 22 && mkdir -p "$( echo $HOME/.ansible/tmp/ansible-tmp-1531185051.39-19324215978344 )" && echo "$( echo $HOME/.ansible/tmp/ansible-tmp-1531185051.39-19324215978344 )" )'
+<139.59.80.209> PUT /tmp/tmp1xIeSq TO /root/.ansible/tmp/ansible-tmp-1531185051.39-19324215978344/command
+<139.59.80.209> SSH: EXEC sftp -b - -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/ansible-ssh-%h-%p-%r '[139.59.80.209]'
+<139.59.80.209> ESTABLISH SSH CONNECTION FOR USER: None
+<139.59.80.209> SSH: EXEC ssh -C -vvv -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/ansible-ssh-%h-%p-%r -tt 139.59.80.209 'LANG=en_IN LC_ALL=en_IN LC_MESSAGES=en_IN /usr/bin/python /root/.ansible/tmp/ansible-tmp-1531185051.39-19324215978344/command; rm -rf "/root/.ansible/tmp/ansible-tmp-1531185051.39-19324215978344/" > /dev/null 2>&1'
+139.59.80.209 | SUCCESS | rc=0 >>
+/export/test1/testtt.txt:python
+/export/test1/testtt.txt:python

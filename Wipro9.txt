@@ -1,0 +1,101 @@
+
+Crontab entries
+
+00 09-18 * * * /home/ramesh/bin/check-db-status
+
+    00 – 0th Minute (Top of the hour)
+    09-18 – 9 am, 10 am,11 am, 12 am, 1 pm, 2 pm, 3 pm, 4 pm, 5 pm, 6 pm
+    * – Every day
+    * – Every month
+    * – Every day of the week
+
+
+
+Performance and Network monitoring:
+
+- 
+
+
+ Monitor threshold – at what point does something trigger an alert?• Alert – When a threshold is met for a period of time, go into „Alert‟ status.• Action – Send an email, SMS, restart a service, run a script, etc.  Monitor threshold – at what point does something trigger an alert?• Alert – When a threshold is met for a period of time, go into „Alert‟ status.• Action – Send an email, SMS, restart a service, run a script, etc. 
+
+ NOC (Network Operation Center)
+
+
+Network moitoring:
+- Monitor the existing devices - Faulty network identification
+  - 24/7 monitoring for network devices
+  - CPU and MEM utilization
+  - Log files
+  - Disk space
+- Find the new device in the network and add it to the monitoring
+
+Security level:
+ - Set of firewall rules.
+ - MOnitoring the firewall - logs
+tail -f /var/log/messages |grep FIREWALL
+
+Search for patterns and exclude few common matches
+
+service iptables status
+- Network traffic
+- 
+
+Elastic search - ELK - 
+
+LDAP - 
+
+AI - Ops
+
+
+iptables -L
+
+iptables -L INPUT | grep `port=2[01]`
+
+TCP sockets
+netstat -tan
+
+Traffic for specific interface
+tcpdump -i ethX
+
+traceroute - with TTL value.
+
+
+UDP sockets
+netstat -uan
+
+
+Firewall rules:
+
+https://www.digitalocean.com/community/tutorials/what-is-a-firewall-and-how-does-it-workhttps://www.digitalocean.com/community/tutorials/what-is-a-firewall-and-how-does-it-work
+
+"accept", "reject", or "drop"
+
+- Accept means to allow the traffic through
+- Reject means to block the traffic but reply with an "unreachable" error,
+- Drop means to block the traffic and send no reply
+
+network traffic is matched against a list of firewall rules in a sequence, or chain, from first to last. More specifically, once a rule is matched, the associated action is applied to the network traffic in question. In our example, if an accounting employee attempted to establish an SSH connection to the server they would be rejected based on rule 2, before rule 3 is even checked. A system administrator, however, would be accepted because they would match only rule 3.
+
+
+  - packet filtering (stateless)
+    -- work by inspecting individual packets in isolation. As such, they are
+    -- unaware of connection state and can only allow or deny packets based
+    -- on individual packet headers.
+  - stateful
+    -- able to determine the connection state of packets, which makes them much more
+    -- flexible than stateless firewalls. They work by collecting related packets until
+    -- the connection state can be determined before any firewall rules applied to the traffic.  
+    --  
+  - application layer
+    -- which allows network traffic to be matched against firewall rules that are specific
+    -- to individual services or applications. These are also known as proxy-based firewalls
+
+As mentioned above, network traffic that traverses a firewall is matched against rules to determine if it should be allowed through or not. An easy way to explain what firewall rules looks like is to show a few examples, so we'll do that now.
+
+Setting up Access Control List - Deny - precedence. 
+
+
+
+host 
+
+nslookup IP_ADDR

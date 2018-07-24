@@ -1,0 +1,50 @@
+# Ansible intro
+- Software Configuration Management tool - Chef, Puppet, Ansible, Saltstack
+  - Install pkgs, copy files, start/stop/restart services, configuration changes
+  - Patch upgrade, system maintenance, task automation
+  - Bulk configuration changes on muliptle servers, by just running one playbook
+  - Playbook - similar to writing Shell scripts
+  - Roles - functions within Shell scripts
+  - Agentless - no need of running agents on the clients, except Python
+
+# Ansible minimal requirements - to start with - for the user
+  - Ssh keys creation and copying to remote servers - Passwordless auth
+  - Linux basics, shell commands and basic admin skills - Run Adhoc commands
+  - Python list, dict and modules - YAML files - Ansible playbook
+  - Creating groups and assign users to groups - Inventory files
+
+# Ansible Server requirements:
+ - Python 2.7 or greater
+ - Ansible installation
+ - Network connection
+  - Inventory files - mapping of hosts into groups
+
+# Ansible client requirements:
+ - Python 2.7 or greater
+ - Ssh keys copied to authorized_keys file in ~/.ssh/
+ - Sshd service 
+ - Network connection
+
+# Ansible installation
+- Create a Digital Ocean VM - CentOS - 4gigs ram - Ansible Sever
+  - Install ansible - "yum install ansible"
+  - Create ssh keys - "ssh-keygen -t rsa"
+  - Copy the public key(Add NEW SSH key) to Digital Ocean's Settings->Security
+
+-Create two Digital Ocean VM - Fedora/Ubuntu(minimal) - Ansible clients
+  - Select "SSH key" of "Ansible Server", while creating the VM
+  - Also, copy/select "SSH Key" of your Windows machine(created from gitbash shell)
+  - Make sure Python2.7 > is installed - raw module to install from Ansible server 
+
+# Verify setup
+- Ansible Server
+  - Ssh to ansible client to check passwordless auth works
+  - Run Adhoc commands to clients : ansible -m shell -a "mkdir -p /export/test1"
+  - Write a playbook and run it from server : ansible-playbook play1.yml
+ 
+- Ansible client 
+  - 
+
+# Add hostname to IP address mapping in /etc/hosts file.
+ - This is to make sure client's hostname is resolvable from Ansible server
+ - 

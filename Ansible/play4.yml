@@ -1,0 +1,6 @@
+- hosts: test1
+  tasks:
+  - name: list apache2
+    yum:
+      list: ansible
+    register: result

@@ -1,0 +1,591 @@
+c^Ccsudo: 3 incorrect password attempts
+SankarR@Skoruz-SankarR:~$ c^C
+SankarR@Skoruz-SankarR:~$ python3
+Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> 
+>>> 
+>>> x=[1,2,3,4,5]
+>>> x=(1,2,3,4,5)
+>>> y={'a':1, 'c':2}
+>>> y={a=1, c=2}
+  File "<stdin>", line 1
+    y={a=1, c=2}
+        ^
+SyntaxError: invalid syntax
+>>> y=dict(a=1, c=2)
+>>> y
+{'c': 2, 'a': 1}
+>>> y={'a':1, 'c':2}
+>>> str1="my_string1"
+>>> str2='my_string2'
+>>> str3="""my_string2"""
+>>> str3="""my_string2 ahjhskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkajsklllllllllllllllllllllllll
+... asjkkkkkkkkkkkkkkkkkkkkk"""
+>>> str3
+'my_string2 ahjhskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkajsklllllllllllllllllllllllll\nasjkkkkkkkkkkkkkkkkkkkkk'
+>>> str3='''my_string2 ahjhskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkajsklllllllllllllllllllllllll'''
+>>> str3
+'my_string2 ahjhskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkajsklllllllllllllllllllllllll'
+>>> str3.
+str3.__add__(           str3.expandtabs(
+str3.__class__(         str3.find(
+str3.__contains__(      str3.format(
+str3.__delattr__(       str3.format_map(
+str3.__dir__(           str3.index(
+str3.__doc__            str3.isalnum(
+str3.__eq__(            str3.isalpha(
+str3.__format__(        str3.isdecimal(
+str3.__ge__(            str3.isdigit(
+str3.__getattribute__(  str3.isidentifier(
+str3.__getitem__(       str3.islower(
+str3.__getnewargs__(    str3.isnumeric(
+str3.__gt__(            str3.isprintable(
+str3.__hash__(          str3.isspace(
+str3.__init__(          str3.istitle(
+str3.__iter__(          str3.isupper(
+str3.__le__(            str3.join(
+str3.__len__(           str3.ljust(
+str3.__lt__(            str3.lower(
+str3.__mod__(           str3.lstrip(
+str3.__mul__(           str3.maketrans(
+str3.__ne__(            str3.partition(
+str3.__new__(           str3.replace(
+str3.__reduce__(        str3.rfind(
+str3.__reduce_ex__(     str3.rindex(
+str3.__repr__(          str3.rjust(
+str3.__rmod__(          str3.rpartition(
+str3.__rmul__(          str3.rsplit(
+str3.__setattr__(       str3.rstrip(
+str3.__sizeof__(        str3.split(
+str3.__str__(           str3.splitlines(
+str3.__subclasshook__(  str3.startswith(
+str3.capitalize(        str3.strip(
+str3.casefold(          str3.swapcase(
+str3.center(            str3.title(
+str3.count(             str3.translate(
+str3.encode(            str3.upper(
+str3.endswith(          str3.zfill(
+>>> str1=" my; first; str1; "
+>>> str1.upper()
+' MY; FIRST; STR1; '
+>>> str1.split()
+['my;', 'first;', 'str1;']
+>>> str1.split(';')
+[' my', ' first', ' str1', ' ']
+>>> str1.count()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: count() takes at least 1 argument (0 given)
+>>> str1.count('r')
+2
+>>> str1.count('o')
+0
+>>> str1.count('y')
+1
+>>> str1.find('y')
+2
+>>> str1
+' my; first; str1; '
+>>> def func1(a,b,c):
+...     return a+b+c
+... 
+>>> func1(2,3,5)
+10
+>>> func1(2,3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: func1() missing 1 required positional argument: 'c'
+>>> func1(2,3,6,8)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: func1() takes 3 positional arguments but 4 were given
+>>> def func1(*name):
+...     return (name)
+... 
+>>> func1()
+()
+>>> func1('Abhay', 'Nitin', 'Mukesh')
+('Abhay', 'Nitin', 'Mukesh')
+>>> func1(1,2,3,4)
+(1, 2, 3, 4)
+>>> def func1(*name, **emp_info):
+...     return (name, emp_info)
+... 
+>>> func1(1,2,3,4)
+((1, 2, 3, 4), {})
+>>> func1(1,2,3,4, x=10, y=20)
+((1, 2, 3, 4), {'y': 20, 'x': 10})
+>>> myvar1=func1(1,2,3,4, x=10, y=20)
+>>> myvar1[0]
+(1, 2, 3, 4)
+>>> myvar1[1]
+{'y': 20, 'x': 10}
+>>> myvar1[1].items()
+dict_items([('y', 20), ('x', 10)])
+>>> myvar1[0].items()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'items'
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> 
+>>> 
+>>> 
+SankarR@Skoruz-SankarR:~$ python3
+Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> file1="/home/SankarR/export/scripts/jenkins.sh"
+>>> fh1=open(file1, 'r')
+>>> fh1.
+fh1._CHUNK_SIZE        fh1._checkClosed(
+fh1.__class__(         fh1._checkReadable(
+fh1.__del__(           fh1._checkSeekable(
+fh1.__delattr__(       fh1._checkWritable(
+fh1.__dict__           fh1._finalizing
+fh1.__dir__(           fh1.buffer
+fh1.__doc__            fh1.close(
+fh1.__enter__(         fh1.closed
+fh1.__eq__(            fh1.detach(
+fh1.__exit__(          fh1.encoding
+fh1.__format__(        fh1.errors
+fh1.__ge__(            fh1.fileno(
+fh1.__getattribute__(  fh1.flush(
+fh1.__getstate__(      fh1.isatty(
+fh1.__gt__(            fh1.line_buffering
+fh1.__hash__(          fh1.mode
+fh1.__init__(          fh1.name
+fh1.__iter__(          fh1.newlines
+fh1.__le__(            fh1.read(
+fh1.__lt__(            fh1.readable(
+fh1.__ne__(            fh1.readline(
+fh1.__new__(           fh1.readlines(
+fh1.__next__(          fh1.seek(
+fh1.__reduce__(        fh1.seekable(
+fh1.__reduce_ex__(     fh1.tell(
+fh1.__repr__(          fh1.truncate(
+fh1.__setattr__(       fh1.writable(
+fh1.__sizeof__(        fh1.write(
+fh1.__str__(           fh1.writelines(
+fh1.__subclasshook__(  
+>>> dir(fh1)
+['_CHUNK_SIZE', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__lt__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_finalizing', 'buffer', 'close', 'closed', 'detach', 'encoding', 'errors', 'fileno', 'flush', 'isatty', 'line_buffering', 'mode', 'name', 'newlines', 'read', 'readable', 'readline', 'readlines', 'seek', 'seekable', 'tell', 'truncate', 'writable', 'write', 'writelines']
+>>> fh1.
+fh1._CHUNK_SIZE        fh1._checkClosed(
+fh1.__class__(         fh1._checkReadable(
+fh1.__del__(           fh1._checkSeekable(
+fh1.__delattr__(       fh1._checkWritable(
+fh1.__dict__           fh1._finalizing
+fh1.__dir__(           fh1.buffer
+fh1.__doc__            fh1.close(
+fh1.__enter__(         fh1.closed
+fh1.__eq__(            fh1.detach(
+fh1.__exit__(          fh1.encoding
+fh1.__format__(        fh1.errors
+fh1.__ge__(            fh1.fileno(
+fh1.__getattribute__(  fh1.flush(
+fh1.__getstate__(      fh1.isatty(
+fh1.__gt__(            fh1.line_buffering
+fh1.__hash__(          fh1.mode
+fh1.__init__(          fh1.name
+fh1.__iter__(          fh1.newlines
+fh1.__le__(            fh1.read(
+fh1.__lt__(            fh1.readable(
+fh1.__ne__(            fh1.readline(
+fh1.__new__(           fh1.readlines(
+fh1.__next__(          fh1.seek(
+fh1.__reduce__(        fh1.seekable(
+fh1.__reduce_ex__(     fh1.tell(
+fh1.__repr__(          fh1.truncate(
+fh1.__setattr__(       fh1.writable(
+fh1.__sizeof__(        fh1.write(
+fh1.__str__(           fh1.writelines(
+fh1.__subclasshook__(  
+>>> fh1.name
+'/home/SankarR/export/scripts/jenkins.sh'
+>>> fh1.closed
+False
+>>> fh1.mode
+'r'
+>>> for i in fh1:
+...     print(i)
+... 
+#!/bin/sh
+
+
+
+########################################
+
+### Variables section ###
+
+########################################
+
+
+
+
+
+
+
+########################################
+
+### Functions required for installing
+
+### and configuring Jenkins
+
+########################################
+
+
+
+install()
+
+{
+
+	instype="$1"
+
+	osver="$2"
+
+	if [ $instype = "war" ]; then
+
+		echo "Running WAR based installation with Tomcat"
+
+		inst_war $osver
+
+	elif [ $instype = "native" ]; then
+
+		echo "Running native package installation"
+
+		inst_native $osver
+
+	else
+
+		echo "Installation not supported"
+
+		exit
+
+	fi
+
+}
+
+
+
+inst_war()
+
+{
+
+	osver=$1
+
+	if [ grep -i "cent" $osver ]; then
+
+
+
+		rel_ver="`cat /etc/redhat-release`"
+
+		echo "Running WAR based installation on $rel_ver"
+
+		yum -y install java-1.8.0-openjdk wget
+
+		rpm -qa |grep -i "java-1.8"
+
+		if [ $? -eq 0 ]; then
+
+			echo "Java 1.8 is installed"
+
+		else
+
+			echo "Java installation failed"
+
+		fi
+
+	fi
+
+
+
+}
+
+
+
+
+
+>>> for i in fh1:
+...     print(i, end='')
+... 
+>>> file1="/tmp/test1.txt"
+>>> fh1=open(file1, 'r')
+>>> for i in fh1:
+...     print(i)
+... 
+line #1
+
+line #2
+
+line #3
+
+line #4
+
+line #5
+
+line #6
+
+line #7
+
+line #8
+
+line #9
+
+>>> fh1=open(file1, 'r')
+>>> for i in fh1:
+...     print(i, end='')
+... 
+line #1
+line #2
+line #3
+line #4
+line #5
+line #6
+line #7
+line #8
+line #9
+>>> fh1=open(file1, 'r')
+>>> for i in fh1.read():
+...     print(i)
+... 
+l
+i
+n
+e
+ 
+#
+1
+
+
+l
+i
+n
+e
+ 
+#
+2
+
+
+l
+i
+n
+e
+ 
+#
+3
+
+
+l
+i
+n
+e
+ 
+#
+4
+
+
+l
+i
+n
+e
+ 
+#
+5
+
+
+l
+i
+n
+e
+ 
+#
+6
+
+
+l
+i
+n
+e
+ 
+#
+7
+
+
+l
+i
+n
+e
+ 
+#
+8
+
+
+l
+i
+n
+e
+ 
+#
+9
+
+
+>>> for i in fh1.read().split('\n'):
+...     print(i)
+... 
+
+>>> fh1=open(file1, 'r')
+>>> for i in fh1.read().split('\n'):
+...     print(i)
+... 
+line #1
+line #2
+line #3
+line #4
+line #5
+line #6
+line #7
+line #8
+line #9
+
+>>> fh1=open(file1, 'r')
+>>> for i in fh1.read().split('\n')[0]:
+...     print(i)
+... 
+l
+i
+n
+e
+ 
+#
+1
+>>> fh1=open(file1, 'r')
+>>> for i in fh1.readlines():
+...     print(i)
+... 
+line #1
+
+line #2
+
+line #3
+
+line #4
+
+line #5
+
+line #6
+
+line #7
+
+line #8
+
+line #9
+
+>>> fh1=open(file1, 'r')
+>>> fh1.readlines()
+['line #1\n', 'line #2\n', 'line #3\n', 'line #4\n', 'line #5\n', 'line #6\n', 'line #7\n', 'line #8\n', 'line #9\n']
+>>> fh1=open(file1, 'r')
+>>> for i in fh1.readlines():
+...     prin
+KeyboardInterrupt
+>>> 
+>>> s1="ABC"
+>>> s1.isupper()
+True
+>>> s1.islower()
+False
+>>> import os
+>>> os.mkdir('/tmp/test_python')
+>>> os.rmdir('/tmp/test_python')
+>>> rdef
+KeyboardInterrupt
+>>> func1(1,2,3,4, x=10, y=20)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'func1' is not defined
+>>> def func1(*name, **emp_info):
+...     return (name, emp_info)
+... 
+>>> func1(1,2,3,4, x=10, y=20)
+((1, 2, 3, 4), {'y': 20, 'x': 10})
+>>> dir(func1)
+['__annotations__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__globals__', '__gt__', '__hash__', '__init__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+>>> func1.__dict__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'dict' object is not callable
+>>> func1.__dict__
+{}
+>>> a=10
+>>> b="Python"
+>>> print("a is {} , b is {}".format(a,b))
+a is 10 , b is Python
+>>> print("a is {b} , b is {a}".format(a,b))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'b'
+>>> print("a is {a} , b is {b}".format(a,b))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'a'
+>>> print("a is {} , b is {}".format(a,b))
+a is 10 , b is Python
+>>> print("a is {} , b is {}".format(a,b))
+KeyboardInterrupt
+>>> 
+>>> range(1,12)
+range(1, 12)
+>>> list(range(1,12))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+>>> [x for x in range(1,12) if x%2==0]
+[2, 4, 6, 8, 10]
+>>> {x:y for x,y in enumerate(range(1,12)) if x%2==0]
+  File "<stdin>", line 1
+    {x:y for x,y in enumerate(range(1,12)) if x%2==0]
+                                                    ^
+SyntaxError: invalid syntax
+>>> {x:y for x,y in enumerate(range(1,12))}
+{0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11}
+>>> 
+
+>>> l1=[1,2,3,3,4]
+>>> dir(l1)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> x=10
+>>> dir(x)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+>>> l1=[1,2,3,3,4]
+>>> dir(l1)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> [x for x in range(1,12) if x%2==0]
+[2, 4, 6, 8, 10]
+>>> l2=[x for x in range(1,12) if x%2==0]
+>>> l2=(x for x in range(1,12) if x%2==0)
+>>> l2
+<generator object <genexpr> at 0x7fc90972b3b8>
+>>> next(l2)
+2
+>>> dir(l2)
+['__class__', '__del__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__lt__', '__name__', '__ne__', '__new__', '__next__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'close', 'gi_code', 'gi_frame', 'gi_running', 'gi_yieldfrom', 'send', 'throw']
+>>> l2
+<generator object <genexpr> at 0x7fc90972b3b8>
+>>> next(l2)
+4
+>>> next(l2)
+6
+>>> next(l2)
+8
+>>> next(l2)
+10
+>>> next(l2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> type(l2)
+<class 'generator'>
+>>> id(l2)
+140501423666104
+

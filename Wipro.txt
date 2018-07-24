@@ -1,0 +1,31 @@
+Monitoring -- Python - custom monitoring - Performance monitor - custom monitor
+Jenkins - Engineering infrastructure - Application - script it 
+HOw many alerts 
+Setting up monitoring - that is part of solution - no agent expected
+Part of the data -- Confluence 
+Custom integration using VB, Java.
+BI - Business Intelligence
+Analytically done. Scala picked up. Applicatio side - he is strong.
+Change the delivery to CD/CI - 
+Use case - scenario based discussion.
+Live monitoring.
+Use existing tool.
+Custom script, based on output , publish the results.
+I will start with this...
+Event manager - jenkins - not actively using it.
+Infrastructure components
+Network components
+business critical appln - sev1 - appln ser-mon- db not monit - no perf monit. disk devel monit
+ perf moint - cpu, mem, table space, table mem, middleware betwn db and web.
+Custom monit - Python and Shell
+ -- Crontab to setup 
+ -- Push changes to the server - by GIT
+ -- Run these "git pull" on the client machines
+ -- 
+Analytics - Event manager - integ to Service Now.
+Get Raw data to event mgr. Also perf monitor.
+State level - up or down
+Perf monitoring - checking if threshold reaches
+OpsView - 
+Pagerduty -
+EventManager - HPOM tool 

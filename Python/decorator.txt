@@ -1,0 +1,17 @@
+https://www.programiz.com/python-programming/decorator
+
+https://www.python-course.eu/python3_decorators.php
+
+https://realpython.com/primer-on-python-decorators/
+
+https://mrcoles.com/blog/3-decorator-examples-and-awesome-python/
+
+https://www.tutorialspoint.com/How-to-check-if-a-Python-string-contains-only-digits
+
+https://www.geeksforgeeks.org/python-string-isdigit-application/
+
+https://leemendelowitz.github.io/blog/how-does-python-find-packages.html
+
+https://www.tecmint.com/linux-network-configuration-and-troubleshooting-commands/
+
+https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex

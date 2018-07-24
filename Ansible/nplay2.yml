@@ -1,0 +1,22 @@
+---
+- hosts: test1
+  tasks:
+    - name: Installs httpd web server
+      package:
+        name: httpd
+        state: present
+        update_cache: true
+      notify:
+        - start-httpd
+        - stop-httpd
+
+  handlers:
+    - name: start-httpd
+      service:
+        name: httpd
+        state: restarted
+
+    - name: stop-httpd
+      service:
+        name: httpd
+        state: stopped

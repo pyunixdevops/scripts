@@ -1,0 +1,10 @@
+- hosts: test1
+  tasks:
+  - name: ensure a list of packages installed
+    package:
+      name: "{{ pkgs }}"
+      state: latest
+    vars:
+      pkgs:
+        - httpd
+        - foo

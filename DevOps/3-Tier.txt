@@ -1,0 +1,21 @@
+3 tier architecture is a pattern used for a completely different reason. It separates the entire application into meaningful "groups": UI, Business Logic, Data Storage. 
+
+
+In MVC : MVC architecture is triangular: the view sends updates to the controller, the controller updates the model, and the view gets updated directly from the model
+
+In Three Tier : A three tier architecture is the client tier never communicates directly with the data tier In a Three-tier model all communication must pass through the middle tier, that is Business Logic.
+
+3 tier divides the whole app in: UI, logic and data
+
+At first glance, the three tiers may seem similar to the model-view-controller (MVC) concept; however, topologically they are different. A fundamental rule in a three tier architecture is the client tier never communicates directly with the data tier; in a three-tier model all communication must pass through the middle tier. Conceptually the three-tier architecture is linear. However, the [model-view-controller] MVC architecture is triangular: the view sends updates to the controller, the controller updates the model, and the view gets updated directly from the model.
+
+Three-tier architecture:
+
+Presentation tier
+    This is the topmost level of the application. The presentation tier displays information related to such services as browsing merchandise, purchasing and shopping cart contents. It communicates with other tiers by which it puts out the results to the browser/client tier and all other tiers in the network. In simple terms, it is a layer which users can access directly (such as a web page, or an operating system's GUI).
+Application tier (business logic, logic tier, or middle tier)
+    The logical tier is pulled out from the presentation tier and, as its own layer, it controls an application’s functionality by performing detailed processing.
+Data tier
+    The data tier includes the data persistence mechanisms (database servers, file shares, etc.) and the data access layer that encapsulates the persistence mechanisms and exposes the data. The data access layer should provide an API to the application tier that exposes methods of managing the stored data without exposing or creating dependencies on the data storage mechanisms. Avoiding dependencies on the storage mechanisms allows for updates or changes without the application tier clients being affected by or even aware of the change. As with the separation of any tier, there are costs for implementation and often costs to performance in exchange for improved scalability and maintainability.
+
+

@@ -1,0 +1,33 @@
+find . -maxdepth 3 -name "*.py" |xargs grep -iRl "fib"
+
+find . -maxdepth 3 -name "*.py" |xargs grep -l "fib"
+
+find . -name "*.py" |xargs grep -l "fib"
+
+find ./test -name 'abc*' ! -name '*.php'
+
+find -name 'pr*' -a -name '*.txt'
+
+find -name '*.php' -o -name '*.txt'
+
+find . -maxdepth 3 -iname 'c*' ! -iname "*.txt" |xargs grep -l "python"
+
+find . -type d -name "P*"
+
+find ./test -type d -name "abc*"
+
+find /usr /etc /var -name "dirsrv"
+
+find  -type f -name "c*y"
+
+find . -type f -perm 0664
+
+find . -type f -perm 0644 |xargs ls -l
+
+find . -type f ! -perm 0777
+
+find . -name <pattern> -printf "%T+\t%s\t%p\n" | sort
+
+find . -maxdepth 2 -type f -size +20M -name "*.zip" -printf "%T+ \t%s \t %p\n"
+
+

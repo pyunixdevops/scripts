@@ -1,0 +1,16 @@
+
+For adding a new PV we have to use fdisk to create the LVM partition
+
+fdisk -cu /dev/sda
+
+List and check the partition we have created using fdisk.
+
+# fdisk -l /dev/sda
+
+Add this pv to vg_tecmint vg to extend the size of a volume group to get more space for expanding lv.
+
+# vgextend vg_tecmint /dev/sda1
+
+There are 4607 free PE available = 18GB Free space available. So we can expand our logical volume up-to 18GB more. Let us use the PE size to extend.
+
+# lvextend -l +4607 /dev/vg_tecmint/LogVol01	

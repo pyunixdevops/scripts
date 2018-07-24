@@ -1,0 +1,205 @@
+
+    “ r “, for reading.
+    “ w “, for writing.
+    “ a “, for appending.
+    “ r+ “, for both reading and writing
+
+"a" - Append - will append to the end of the file
+"w" - Write - will overwrite any existing content
+
+"x" - Create - will create a file, returns an error if the file exist
+
+"a" - Append - will create a file if the specified file does not exist
+
+"w" - Write - will create a file if the specified file does not exist
+
+
+f = open("myfile.txt", "x") -> To create an empty file, if it doesn't exist
+
+import os
+os.remove("demofile.txt") 
+
+
+
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exists") 
+
+
+
+import os
+os.rmdir("myfolder") 
+
+
+
+fh.read() -> return string
+fh.read(5) -> read 5 chars
+
+f.write('This is a test\n') -> no of chars written
+
+value = ('the answer', 42)
+
+''.join(str(x) for x in value)
+
+f = open("demofile.txt", "r")
+for x in f:
+  print(x) 
+
+- Adds newline char in the end after each line.
+
+
+fh1=open('file1.txt', 'r')
+
+for line in fh1.read().split('\n'):
+    print(line)
+
+
+
+file.closed
+
+Returns true if file is closed, false otherwise.
+
+file.mode
+
+Returns access mode with which file was opened.
+
+file.name
+
+Returns name of the file.
+
+
+The read() method reads a string from an open file. It is important to note that Python strings can have binary data. apart from text data.
+
+Renaming and Deleting Files
+
+Python os module provides methods that help you perform file-processing operations, such as renaming and deleting files.
+
+To use this module you need to import it first and then you can call any related functions.
+The rename() Method
+
+The rename() method takes two arguments, the current filename and the new filename.
+Syntax
+
+os.rename(current_file_name, new_file_name)
+
+Example
+
+Following is the example to rename an existing file test1.txt −
+
+#!/usr/bin/python
+import os
+
+# Rename a file from test1.txt to test2.txt
+os.rename( "test1.txt", "test2.txt" )
+
+The remove() Method
+
+You can use the remove() method to delete files by supplying the name of the file to be deleted as the argument.
+Syntax
+
+os.remove(file_name)
+
+Example
+
+Following is the example to delete an existing file test2.txt −
+
+#!/usr/bin/python
+import os
+
+# Delete file test2.txt
+os.remove("text2.txt")
+
+
+
+Directories in Python
+
+All files are contained within various directories, and Python has no problem handling these too. The os module has several methods that help you create, remove, and change directories.
+The mkdir() Method
+
+You can use the mkdir() method of the os module to create directories in the current directory. You need to supply an argument to this method which contains the name of the directory to be created.
+Syntax
+
+os.mkdir("newdir")
+
+Example
+
+Following is the example to create a directory test in the current directory −
+
+#!/usr/bin/python
+import os
+
+# Create a directory "test"
+os.mkdir("test")
+
+The chdir() Method
+
+You can use the chdir() method to change the current directory. The chdir() method takes an argument, which is the name of the directory that you want to make the current directory.
+Syntax
+
+os.chdir("newdir")
+
+Example
+
+Following is the example to go into "/home/newdir" directory −
+
+#!/usr/bin/python
+import os
+
+# Changing a directory to "/home/newdir"
+os.chdir("/home/newdir")
+
+The getcwd() Method
+
+The getcwd() method displays the current working directory.
+Syntax
+
+os.getcwd()
+
+Example
+
+Following is the example to give current directory −
+
+#!/usr/bin/python
+import os
+
+# This would give location of the current directory
+os.getcwd()
+
+The rmdir() Method
+
+The rmdir() method deletes the directory, which is passed as an argument in the method.
+
+Before removing a directory, all the contents in it should be removed.
+Syntax
+
+os.rmdir('dirname')
+
+Example
+
+Following is the example to remove "/tmp/test" directory. It is required to give fully qualified name of the directory, otherwise it would search for that directory in the current directory.
+
+#!/usr/bin/python
+import os
+
+# This would  remove "/tmp/test"  directory.
+os.rmdir( "/tmp/test"  )
+
+
+#!/usr/bin/python
+
+try:
+   fh = open("testfile", "w")
+   fh.write("This is my test file for exception handling!!")
+except IOError:
+   print "Error: can\'t find file or read data"
+else:
+   print "Written content in the file successfully"
+   fh.close()
+
+
+
+This kind of a try-except statement catches all the exceptions that occur. Using this kind of try-except statement is not considered a good programming practice though, because it catches all exceptions but does not make the programmer identify the root cause of the problem that may occur.
+
+

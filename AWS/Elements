@@ -1,0 +1,17 @@
+- Principal/User/Account/Subject
+- Operations - creating instance in EC2. or creating a volume in S3.
+- Resource - a result of the operations - IAM user. resource will start with arn:aws-partition
+- Authentication/Authorization
+- Identity policy. Role based policy
+
+Access key and Secret required for AWS CLI
+
+Role based policy.
+
+STS - Secure Token Service - Shortlived Token Service
+
+Naming scheme - 
+ARN - Amazon resource Name
+Region - Location where AWS
+Availability zone - 
+- 

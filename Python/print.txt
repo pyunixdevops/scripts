@@ -1,0 +1,35 @@
+>>> print("my", "name", "is Sankar Ramalingam", sep='::', end='\n \n')
+my::name::is Sankar Ramalingam
+ 
+>>> print("my", "name", "is Sankar Ramalingam", sep='--', end='   ')
+my--name--is Sankar Ramalingam   >>>
+
+>>> print("my", "name", "is Sankar Ramalingam", sep='--', end='')
+my--name--is Sankar Ramalingam>>> print("my", "name", "is Sankar Ramalingam", sep='--')
+my--name--is Sankar Ramalingam
+>>> print("my", "name", "is Sankar Ramalingam", sep='--', file=open("/tmp/test1", 'w'), end='\n \n')
+>>> print("my", "Appa name", "is Ramalingam K", sep='--', file=open("/tmp/test1", 'a'), end='\n \n')
+>>> print("my", "Amma name", "is Amudhavalli R", sep='--', file=open("/tmp/test1", 'a'), end='\n \n')
+>>> os.path.exists('/tmp/test1')
+True
+>>> f=open('/tmp/test1', 'r')
+>>> for i in f:
+...     print(i)
+... 
+my--name--is Sankar Ramalingam
+
+ 
+
+my--Appa name--is Ramalingam K
+
+ 
+
+my--Amma name--is Amudhavalli R
+
+ 
+
+>>> 
+
+
+
+

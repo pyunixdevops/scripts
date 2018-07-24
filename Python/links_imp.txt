@@ -1,0 +1,6 @@
+https://nvie.com/posts/iterators-vs-generators/
+
+https://medium.freecodecamp.org/python-list-comprehensions-vs-generator-expressions-cef70ccb49db
+
+https://docs.python.org/3/library/functions.html#iter
+
