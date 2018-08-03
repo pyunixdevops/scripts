@@ -1,0 +1,144 @@
+Default config files:
+
+Config_file - /etc/ansible/ansible.cfg
+Inventory_file - /etc/ansible/hosts
+
+ansible --version
+ansible-playbook --version
+
+# To see allthe host groups in the inventory file
+ansible localhost -m debug -a 'var=groups'
+
+# To list all the hosts from the inventory files
+ansible all --list-hosts
+ansible all --list
+
+Links:
+  - https://docs.ansible.com/ansible/2.5/user_guide/intro_inventory.html
+  - https://insights.sei.cmu.edu/devops/2015/03/devops-technologies-fabric-or-ansible.html
+
+Copy to remote machine - files
+
+
+- hosts: blocks
+  tasks:
+  - name: Ansible copy multiple files with_items
+    copy:
+      src: ~/{{item}}
+      dest: /tmp
+      mode: 0774
+    with_items:
+      ['hello1','hello2','hello3','sub_folder/hello4']
+
+
+- hosts: serverB
+  tasks:    
+   - name: Copy Remote-To-Remote (from serverA to serverB)
+     synchronize: src=/copy/from_serverA dest=/copy/to_serverB
+     delegate_to: serverA
+
+This playbook can run from your machineC.
+
+
+- hosts: ServerB
+  tasks:
+    - name: Transfer file from ServerA to ServerB
+      synchronize:
+        src: /path/on/server_a
+        dest: /path/on/server_b
+      delegate_to: ServerA
+
+
+
+If you need to sync files between two remote nodes via ansible you can use this:
+
+- name: synchronize between nodes
+  environment:
+    RSYNC_PASSWORD: "{{ input_user_password_if_needed }}"
+  synchronize:
+    src: rsync://user@remote_server:/module/
+    dest: /destination/directory/
+    // if needed
+    rsync_opts:
+       - "--include=what_needed"
+       - "--exclude=**/**"
+    mode: pull
+    delegate_to: "{{ inventory_hostname }}"
+
+
+
+
+
+down vote
+
+A simple way to used copy module to transfer the file from one server to another
+
+Here is playbook
+
+---
+- hosts: machine1 {from here file will be transferred to another remote machine}
+  tasks:
+  - name: transfer data from machine1 to machine2
+
+    copy:
+     src=/path/of/machine1
+
+     dest=/path/of/machine2
+
+    delegate_to: machine2 {file/data receiver machine}
+
+
+ANSIBLE_CFG
+
+Add new node at run time: use "add_host" module
+
+The add_host module takes two options, name and groups . The name should be
+obvious, it defines the hostname that Ansible will use when connecting to this
+particular system. The groups option is a comma-separated list of groups to add
+this new system to.
+
+- name: add new node into runtime inventory
+add_host:
+name: newmastery.example.name
+groups: web
+ansible_ssh_host: 192.168.10.30
+
+This will be useful, when the VM is created on the fly from AWS or Openstack.
+The host gets added to the already sourced ansible_inventory hosts list.
+
+It is important to remember that regardless of the host's pattern used in a play, or the
+limit supplied at runtime, Ansible will still parse the entire inventory set during each
+run. In fact, we can prove this by attempting to access host variable data for a system
+that would otherwise be masked by our limit.
+
+-----------------------------------------------
+
+This lookup understands ‘host patterns’ as used bye the hosts: keyword in plays and can return a list of matching hosts from inventory
+
+    this is only worth for ‘hostname patterns’ it is easier to loop over the group/group_names variables otherwise.
+
+Examples
+
+- name: show all the hosts matching the pattern, ie all but the group www
+  debug:
+    msg: "{{ item }}"
+  with_inventory_hostnames:
+    - all:!www
+-----------------------------------------------
+
+
+---
+  - name: limit example play
+    hosts: all
+    gather_facts: false
+
+    tasks:
+      - name: tell us which host we are on
+        debug:
+        var: inventory_hostname
+
+      - name: grab variable data from backend
+        debug:
+        var: hostvars['backend.example.name']['ansible_ssh_port']
+
+

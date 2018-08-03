@@ -1,0 +1,5 @@
+Packer is free and open-source software for creating identical machine images
+or containers for multiple platforms from a single source configuration.
+
+
+

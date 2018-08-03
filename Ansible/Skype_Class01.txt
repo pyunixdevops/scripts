@@ -1,0 +1,126 @@
+Date: 03-Aug-2018
+Topic: Ansible
+Commands: Ad-hoc
+
+Basics:
+- Sys admin intermediate level of linux commands
+  -- yum, service, cp, mv, chmod, chown
+- What each command does and its different options
+  -- yum - for package installation and removal
+  -- service - for stop/start/restart services/processes
+- Able to understand and compare few Linux variance
+  -- dnf is a replacement for yum
+- Python list and dict - object type, representation and syntax
+  -- Both are mutable objects
+  -- List - Ordered(indexed) collection of data
+  -- Dict - Unordered(unindexed, but value can be accessed by key) collection of key value pairs
+- YAML syntax - combination of list and dict
+- YAML is not a markup Language. Plain text file
+- Similar to JSON(Java Script Object Notation) 
+  -- Single value is separated by : on the same line
+  -- Multiple values are separated by : at the end of the line
+- Able to understand Infrastructure as a Code(IaaS)
+  -- Stack creation - creating virtual machines through script
+  -- Terraform templates - Hashicorp - Supports many cloud, but limited func
+  -- Cloudformation templates - AWS specific - written as JSON format
+- Inventory files, Config files and Variables
+  -- flat files
+  -- collection of IP addresses and hostnames of ansible clients
+
+Why Ansible:
+- To achieve a particular task for Sys admin or Operations team
+- Parellely run it on multiple machines.
+- Orchestration - step by step execution based on success of prev commands
+- Configuration management
+- Deployment
+
+Ansible config files:
+All_Config - /etc/ansible/ansible.cfg
+Inventory_file - /etc/ansible/hosts
+
+Common ansible terms:
+- Inventory files
+  -- contains information about hosts and its vars
+  -- hosts are represented in groups and groups within groups
+  -- Default - /etc/ansible/hosts
+  -- Non-default - can be called with -i $inventory_hosts_file1.
+     -- For eg: ansible-playbook all_db -i /tmp/my_invent
+  -- 
+- Ad-hoc or runtime shell commands
+  -- They can be executed to achieve a routine maintenance work
+  -- They are same like basic shell commands
+- Tasks
+  -- They are composed in an YAML file
+  -- Can be run against ansible-playbook command
+  -- This is same as a Shell scripts. Sequence of commands in a script file
+- Vars
+  -- Same as declaring variables in a shell script
+  -- Must be called with {{ var_name }}
+
+Little advanced:
+- Roles
+  -- Like functions in shell script or Python script
+  -- Can be reused or called anywhere
+- Handlers
+  -- Its called when the condition is true or 
+- Templates-jinja2
+  -- Variables definition and how to call them
+- Galaxy - ansible-galaxy
+  -- Roles written by people and its available repository
+- Playbook - ansible-playbook
+  -- Set of commands in an YAML file. It contains tasks, roles, templates and vars.
+
+Playbook basics:
+- main.yml
+- import statements
+- call playbook inside a playbook
+- call roles from tasks
+- call handlers from tasks
+
+Best practices:
+- 
+
+
+
+
+Inventory file creation:
+[web]
+web1.example.com
+web2.example.com
+web3.example.com
+
+[app]
+app1.example.com
+app2.example.com
+app3.example.com
+
+[db]
+db1.example.com
+db2.example.com
+db3.example.com
+
+[test]
+
+[stage:children]
+web
+app
+
+[prod:children]
+app
+db
+
+
+ansible all -m ping
+
+ansible all -m raw -a "yum install -y httpd"
+
+ansible --version
+ansible-playbook --version
+
+# To see allthe host groups in the inventory file
+ansible localhost -m debug -a 'var=groups'
+
+# To list all the hosts from the inventory files
+ansible all --list-hosts
+ansible all --list
+

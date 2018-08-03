@@ -1,0 +1,41 @@
+Terraform: Its a replacement for Vagrant to quickly create your test/dev env
+
+Orchestrate:
+Bring different pieces together(multi-tier architecture application) and make everthing work.
+Running Ansible tasks in a sequence to make sure the services upgraded/installed/restarted in a proper way to achieve zero downtime.
+
+What you need is an orchestration tool that can ensure all these tasks happen in the proper order - that the database is up before the backend server, that the frontend server is removed from the load balancer before it’s upgraded, that your networks have their proper VLANs configured. Ansible’s clear syntax and task-based nature makes orchestrating these tasks easy.
+
+
+Attempting to deploy, operate and upgrade an OpenStack cloud can be a complex and daunting task.
+
+That’s why, across the industry, Ansible is used to orchestrate OpenStack rollouts. Companies like Rackspace, CSC, HP, Cisco and IBM rely on Ansible to keep their OpenStack clouds available simply and securely. 
+
+mazon Web Services Tower Diagram
+Ansible & AWS: Batteries included
+
+From the beginning, Ansible has offered deep support for AWS. Ansible can be used to define, deploy, and manage a wide variety of AWS services. Even the most complicated of AWS environments can be easily described in Ansible playbooks. Once your AWS-based application environments are described with Ansible, you can deploy them again and again, easily scaling out to 100s or 1000s of instances across multiple regions, with the same results each and every time.
+
+Out of the box, Ansible has nearly 100 modules supporting AWS capabilities, including:
+
+AMI Management
+Autoscaling Groups
+CloudFormation
+CloudTrail
+CloudWatch
+DynamoDB
+ElastiCache
+Elastic Block Store (EBS)
+Elastic Cloud Compute (EC2)
+Elastic IPs (EIP)
+Elastic Load Balancers (ELB)
+Identity Access Manager (IAM)
+Kinesis
+Lambda
+Relational Database Service
+Route53
+Security Groups
+Security Token Service
+Simple Storage Service (S3)
+Virtual Private Cloud (VPC)
+

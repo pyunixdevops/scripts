@@ -1,0 +1,54 @@
+Default VPC - 172.16.0.0/16
+
+Multiple subnets - public subnets
+
+What is the number
+
+IP ranges within each subnets
+
+DB - private subnet
+Smaller DB cluster -
+
+CIDR - - CIDR (Classless Inter-Domain Routing) or Subnetting
+
+Network bits | Host bits
+8-8-x-x - /16
+8-8-8-x - /24
+8-8-4-x - /20 network
+
+/20 network - 4 subnets - 2power4 - 16 . so, the total IP addr will be 16*254
+
+------
+Private network:
+172.16.
+192.168
+10.0
+------
+
+0 - gateway
+255 - Broadcast
+
+Internet gateway - to be attached to a public subnet
+
+Route table will be attached to gateway.
+
+NAT gateway  
+- Private subnet to talk to internet
+- Put it in a Public subnet
+- Elastic IP
+- Multiple VPCs to connect - Create peering connection
+- 
+
+S3 - managed service - Public endpoints
+Create end point services - Bucket - create a private end point
+Connect your VPC to private end point
+
+3 availability zones
+
+Internet gateway - Public 
+
+BGP - Border Gateway Protocol
+
+
+Create an internet gateway and attach it to VPC.
+

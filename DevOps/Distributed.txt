@@ -1,0 +1,20 @@
+One LB -> Web Sever -> MongoDB server
+
+OS - Base1
+App dependencies - Base2
+Configuration - Base3 - 
+Application - Base4 - Top1
+
+
+- Ansible to prepare the machine setup -> Config management
+- Start creating Jenkins pipeline.
+
+- Ansible changes 
+
+Unit testing doesn't require separate setup.
+
+Ansible inventory changing for Dev/Stag/Prod
+
+Dev-2/Stag-5/Prod-10
+
+

@@ -1,0 +1,7 @@
+Swarm mode key concepts
+This topic introduces some of the concepts unique to the cluster management and orchestration features of Docker Engine 1.12.
+What is a swarm?
+
+The cluster management and orchestration features embedded in the Docker Engine are built using swarmkit. Swarmkit is a separate project which implements Docker’s orchestration layer and is used directly within Docker.
+
+A swarm consists of multiple Docker hosts which run in swarm mode and act as managers (to manage membership and delegation) and workers (which run swarm services). 

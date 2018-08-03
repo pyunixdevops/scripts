@@ -1,0 +1,12 @@
+jenkins home.
+
+Download the source file...
+make 
+
+mvn build - - copy to plugin dir
+Copy source file
+
+DSL - Scripted pipeline - Domain Specific Language.
+
+
+
