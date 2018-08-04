@@ -1,7 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-def calDistinctPairs(a, k):
-    mset=list(sorted(set(a)))
+def countDistPairs(list1, val1):
+    """Pass a list and the resulting pair of value"""
+    mset=list(sorted(set(list1)))
     count=0
     rcount=0
     mlist1=[]
@@ -9,21 +10,15 @@ def calDistinctPairs(a, k):
         for j in mset[count+1:]:
             if sorted([i,j]) not in mlist1:
                 mlist1.append(sorted([i,j]))
-                if i + j == k:
+                if i + j == val1:
                      print(i,j)
                      rcount+=1
-        if a.count(i) >= 2:
+        if list1.count(i) >= 2:
             if sorted([i,j]) not in mlist1:
                 mlist1.append(sorted([i,j]))
-                if i + i == k:
+                if i + i == val1:
                     print(i,i)
                     rcount+=1
 
     return rcount
-
-
-m=[3,4,5,6,7,8,9,2,2,4,5,6,7,8,5,5,1,9]
-l=10
-print(calDistinctPairs(m,l))
-                
 

@@ -1,0 +1,17 @@
+
+in: Checks if an item is present in the collection
+ - applicable only with iterables(list, dict -only keys, set, tuple and str)
+ - a in 'abc'
+ - 2 in [1,2,3]
+ - 'a' in {'a': 2, 'b': 3}
+ - 2 in {1,2,3,4}
+
+is: Checks whether the id() of two variables are equal
+ - x=10 and y=10
+ - x is y -> returns True
+ - m="abc" and n="abcd"
+ - m is n -> returns True
+ - l1=[1,2,3,4] and l2=[1,2,3,4]
+ - l1 == l2 -> returns True
+ - l1 is l2 -> returns False -> check id(l1) and id(l2)
+

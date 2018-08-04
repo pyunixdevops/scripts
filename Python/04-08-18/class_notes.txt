@@ -1,0 +1,108 @@
+>>> st2="My name is Souwmya Somya Sowmya Sowmiya"
+>>> import re
+>>> re.match("S.*a", st2)
+>>> re.match("S.*a", st2)
+>>> st3="Sowmiya My name is Souwmya Somya Sowmya Sowmiya"
+>>> re.match("S.*a", st3)
+<_sre.SRE_Match object; span=(0, 47), match='Sowmiya My name is Souwmya Somya Sowmya Sowmiya'>
+>>> re.match("S.*a ", st3)
+<_sre.SRE_Match object; span=(0, 40), match='Sowmiya My name is Souwmya Somya Sowmya '>
+>>> re.match("S.a ", st3)
+>>> re.match("Sou...a ", st3)
+>>> re.match("Sow...a ", st3)
+<_sre.SRE_Match object; span=(0, 8), match='Sowmiya '>
+>>> re.match("Sow...a ", st3)
+<_sre.SRE_Match object; span=(0, 8), match='Sowmiya '>
+>>> patt1=re.compile("Sow...a")
+>>> re.match(patt1, st3)
+<_sre.SRE_Match object; span=(0, 7), match='Sowmiya'>
+>>> st4="How many man maan maaan are there?"
+>>> patt2=re.compile("ma?n")
+>>> patt2.search(st4)
+<_sre.SRE_Match object; span=(4, 7), match='man'>
+>>> patt2.findall(st4)
+['man', 'man']
+>>> st4="How many man maan maaan are there mnnew?"
+>>> patt2.findall(st4)
+['man', 'man', 'mn']
+>>> patt2.search(st4)
+<_sre.SRE_Match object; span=(4, 7), match='man'>
+>>> patt2.finditer(st4)
+<callable_iterator object at 0x7f67b346ec50>
+>>> iter(patt2.finditer(st4))
+<callable_iterator object at 0x7f67b346edd8>
+>>> iter1=patt2.finditer(st4)
+>>> for i in iter1:
+...     print(i)
+... 
+<_sre.SRE_Match object; span=(4, 7), match='man'>
+<_sre.SRE_Match object; span=(9, 12), match='man'>
+<_sre.SRE_Match object; span=(34, 36), match='mn'>
+>>> patt2=re.compile("ma+n")
+>>> patt2.findall(st4)
+['man', 'man', 'maan', 'maaan']
+>>> patt2=re.compile("ma*n")
+>>> patt2.findall(st4)
+['man', 'man', 'maan', 'maaan', 'mn']
+>>> patt2=re.compile("ma?n")
+>>> patt2.findall(st4)
+['man', 'man', 'mn']
+>>> st4="How many man maan maaan are there mnnew? mk"
+>>> patt2.findall(st4)
+['man', 'man', 'mn']
+>>> patt2=re.compile("ma?.")
+>>> patt2.findall(st4)
+['man', 'man', 'maa', 'maa', 'mn', 'mk']
+>>> patt2=re.compile("^ma?.")
+>>> patt2.findall(st4)
+[]
+>>> patt2=re.compile("^ma?.")
+>>> patt2.findall(st4)
+[]
+>>> patt2.search(st4)
+>>> st4="mHow many man maan maaan are there mnnew? mk"
+>>> patt2.search(st4)
+<_sre.SRE_Match object; span=(0, 2), match='mH'>
+>>> st4="maHow many man maan maaan are there mnnew? mk"
+>>> patt2.search(st4)
+<_sre.SRE_Match object; span=(0, 3), match='maH'>
+>>> st4="How many man maan maaan are there mnnew? mask"
+>>> patt2=re.compile("ma?.k$")
+>>> patt2.search(st4)
+<_sre.SRE_Match object; span=(41, 45), match='mask'>
+>>> st4="How many man maan maaan are there mnnew? mask this is new"
+>>> patt2.search(st4)
+>>> patt2=re.compile("ma?.k$")
+>>> patt2.search(st4)
+>>> if patt2.search(st4):
+...     print("matched")
+... else:
+...     print("NO MATCH")
+... 
+NO MATCH
+>>> patt2=re.compile("ma?.k")
+>>> if patt2.search(st4):
+...     print("matched")
+... else:
+...     print("NO MATCH")
+... 
+matched
+>>> patt2.search(st4)
+<_sre.SRE_Match object; span=(41, 45), match='mask'>
+>>> st4
+'How many man maan maaan are there mnnew? mask this is new'
+>>> st4.split()
+['How', 'many', 'man', 'maan', 'maaan', 'are', 'there', 'mnnew?', 'mask', 'this', 'is', 'new']
+>>> patt2
+re.compile('ma?.k')
+>>> patt2=re.compile("ma?.")
+>>> patt2
+patt2
+>>> patt2.s
+patt2.scanner(  patt2.search(   patt2.split(    patt2.sub(      patt2.subn(     
+>>> patt2.split(st4)
+['How ', 'y ', ' ', 'n ', 'an are there ', 'new? ', 'k this is new']
+>>> 
+>>> st4.split('man')
+['How ', 'y ', ' maan maaan are there mnnew? mask this is new']
+

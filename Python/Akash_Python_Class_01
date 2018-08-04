@@ -1,0 +1,362 @@
+
+What we covered in the last class:
+
+Regex: 
+Regular expressions:
+
+# Need to import re module.
+# Search for a pattern in a file or string.
+import re
+
+1. 'a' in 'abc'
+
+2. if 'a' in 'abc':
+
+
+compile - just like a function or variable to which we can assign some values - Re compiled object.
+	- Its same as writing function. To do particular task which you feel like it will repeated from different place.
+match - match/search(single) for pattern in start of the string - returns match object.
+search - match/search(single) for pattern anywhere within the string - returns match object.
+findall - returns a list of matches - it returns the actual matches. Not the match object.
+finditer - returns a list of match object - it doesn't return the actual matches. Only the match object. 
+
+
+
+[test@openstack-sever ~]$ python
+Python 2.7.13 (default, Dec  1 2017, 09:21:53) 
+[GCC 6.4.1 20170727 (Red Hat 6.4.1-1)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+[test@openstack-sever ~]$ python3.5
+Python 3.5.4 (default, Oct  9 2017, 12:07:29) 
+[GCC 6.4.1 20170727 (Red Hat 6.4.1-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> fo=re.compile('abc')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 're' is not defined
+>>> import re
+>>> fo=re.compile('abc')
+>>> fo
+re.compile('abc')
+>>> x=10
+>>> x
+10
+>>> y="my_ststrtrs"
+>>> y
+'my_ststrtrs'
+>>> fo.match('abcdseeeabcABCuuiiabnnnabc')
+<_sre.SRE_Match object; span=(0, 3), match='abc'>
+>>> st1="abc123"
+>>> st1.upper()
+'ABC123'
+>>> re.match('abc', 'abcdseeeabcABCuuiiabnnnabc')
+<_sre.SRE_Match object; span=(0, 3), match='abc'>
+>>> st1='abcdseeeabcABCuuiiabnnnabc'
+>>> fo.match(st1)
+<_sre.SRE_Match object; span=(0, 3), match='abc'>
+>>> fo.search(st1)
+<_sre.SRE_Match object; span=(0, 3), match='abc'>
+>>> st1='WabcdseeeabcABCuuiiabnnnabc'
+>>> fo.search(st1)
+<_sre.SRE_Match object; span=(1, 4), match='abc'>
+>>> fo.match(st1)
+>>> fo.findall(st1)
+['abc', 'abc', 'abc']
+>>> fo=re.compile('abc', re.I)
+>>> fo.findall(st1)
+['abc', 'abc', 'ABC', 'abc']
+>>> fo=re.compile('ABC', re.I)
+>>> fo.findall(st1)
+
+
+['abc', 'abc', 'ABC', 'abc']
+>>> fo.finditer(st1)
+<callable_iterator object at 0x7f04f9559eb8>
+>>> iter1=fo.finditer(st1)
+>>> for i in iter1:
+...     print(i)
+... 
+<_sre.SRE_Match object; span=(1, 4), match='abc'>
+<_sre.SRE_Match object; span=(9, 12), match='abc'>
+<_sre.SRE_Match object; span=(12, 15), match='ABC'>
+<_sre.SRE_Match object; span=(24, 27), match='abc'>
+>>> iter1.groups()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'callable_iterator' object has no attribute 'groups'
+>>> iter1.group()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'callable_iterator' object has no attribute 'group'
+
+
+Regular expression: class #3: Online - 26-12-2017.
+
+b="my name is caat or cat, but I am called Caaat"
+
+>>> nco1=re.compile('caa*t')
+nco1 -> is an re object. its a variable. something similar to x=10, y="Akash"
+x -> int object ; 10
+y -> string object ; "Akash"
+nco1 -> re object -> re.compile("caa*t")
+
+span() -> give you a tuple with the range.
+nco1.search(b).span()
+nco1.search(b).start()
+nco1.search(b).end()
+
+nco1.search(b).group()
+
+The above functions start(), end(), group() and span() can be applied only to match objects.
+
+<_sre.SRE_Match object; span=(11, 15), match='caat'>
+
+re.match -> will match(match object) only, at the start of the string.
+re.search -> will match(match object) only, anywhere within the string.
+re.findall -> will return the list of matches. 
+re.finditer -> will return the iter(ator) object.
+
+>>> nco2=re.compile('caa*t', re.I)
+>>> nco2.findall(b)
+['caat', 'cat', 'Caaat']
+
+flags:
+re.I -> Ignore case.
+re.M -> Multi line match.
+
+>>> for i in nco2.finditer(b):
+...     print(i)
+... 
+<_sre.SRE_Match object; span=(11, 15), match='caat'>
+<_sre.SRE_Match object; span=(19, 22), match='cat'>
+<_sre.SRE_Match object; span=(40, 45), match='Caaat'>
+
+
+String split:
+ - split() function is going to return list of strings. splits based on space char.
+ - what is " " -> "space" called? delimter string.
+
+what is \n ? 	- new line character.
+
+>>> reobj2=re.compile(r'[0-9]{9}')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(90, 99), match='997256659'>
+>>> reobj2=re.compile(r'[0-9]{10}')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(90, 100), match='9972566596'>
+>>> reobj2=re.compile(r'[0-9]{3,10}')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(39, 42), match='308'>
+>>> reobj2.findall(str4)
+['308', '9972566596']
+>>> reobj2=re.compile(r'[0-9]{10}')
+>>> reobj2.findall(str4)
+['9972566596']
+
+
+
+
+>>> nco1.search(b).span()
+(11, 15)
+>>> nco1.search(b).start()
+11
+>>> nco1.search(b).end()
+15
+>>> nco1.search(b).group()
+'caat'
+>>> nco1.match(b)
+>>> #nco1.findall(b)
+... 
+>>> b
+'my name is caat or cat, but I am called Caaat'
+>>> nco1.findall(b)
+['caat', 'cat']
+>>> nco2=re.compile('caa*t', re.I)
+>>> nco2.findall(b)
+['caat', 'cat', 'Caaat']
+>>> nco2.finditer(b)
+<callable_iterator object at 0x7f4b31ddccc0>
+>>> for i in nco2.finditer(b):
+...     print(i)
+... 
+<_sre.SRE_Match object; span=(11, 15), match='caat'>
+<_sre.SRE_Match object; span=(19, 22), match='cat'>
+<_sre.SRE_Match object; span=(40, 45), match='Caaat'>
+>>> b="my name is caat or cat, but I am called Caaat"
+>>> b.split()
+['my', 'name', 'is', 'caat', 'or', 'cat,', 'but', 'I', 'am', 'called', 'Caaat']
+>>> b.split('cat')
+['my name is caat or ', ', but I am called Caaat']
+>>> nco2.split(b)
+['my name is ', ' or ', ', but I am called ', '']
+>>> b="my name is caat or cat, but I am called Caaat"
+>>> b.replace(' ', '')
+'mynameiscaatorcat,butIamcalledCaaat'
+>>> nco2.sub('CAAT', b)
+'my name is CAAT or CAAT, but I am called CAAT'
+>>> nco2.subn('CAAT', b)
+('my name is CAAT or CAAT, but I am called CAAT', 3)
+>>> nco2.subn('CAAT', b)[1]
+3
+>>> tup2=(1,2,3,4,5,6)
+>>> tup2[3]
+4
+>>> tup2[5]
+6
+>>> nco2.findall(b)
+['caat', 'cat', 'Caaat']
+>>> nco2.findall(b)[0]
+'caat'
+>>> nco2.findall(b)[1]
+'cat'
+>>> nco2.findall(b)[2]
+'Caaat'
+>>> str3="This is my new line with enter key \n this not a new line\n MY one more new line in line"
+>>> str3="This is my new line with enter key \n this not a new line\n MY one more new line in line"
+>>> #str3="Sankar Ramalingam"
+... 
+>>> str2="Sankar Ramalingam"
+>>> str4="My name is Sankar Ramalingam, I am teaching Python for students"
+>>> str4="My name is Sankar Ramalingam, House no 308. I am teaching Python for students my phone no 9972566596"
+>>> reobj1=re.compile(r'[0-9]+')
+>>> reobj1.search(str4)
+<_sre.SRE_Match object; span=(39, 42), match='308'>
+>>> reobj2=re.compile(r'[0-9]+{9}')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib64/python3.5/re.py", line 224, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib64/python3.5/re.py", line 293, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib64/python3.5/sre_compile.py", line 536, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib64/python3.5/sre_parse.py", line 829, in parse
+    p = _parse_sub(source, pattern, 0)
+  File "/usr/lib64/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state, nested + 1))
+  File "/usr/lib64/python3.5/sre_parse.py", line 641, in _parse
+    source.tell() - here + len(this))
+sre_constants.error: multiple repeat at position 6
+>>> reobj2=re.compile(r'[0-9]{9}')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(90, 99), match='997256659'>
+>>> reobj2=re.compile(r'[0-9]{10}')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(90, 100), match='9972566596'>
+>>> reobj2=re.compile(r'[0-9]{3,10}')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(39, 42), match='308'>
+>>> reobj2.findall(str4)
+['308', '9972566596']
+>>> reobj2=re.compile(r'[0-9]{10}')
+>>> reobj2.findall(str4)
+['9972566596']
+>>> reobj2=re.compile(r'(phone) (\w+) ([0-9]{10})')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(81, 100), match='phone no 9972566596'>
+>>> reobj2=re.compile(r'(phone) (\w+) ([0-9]{3,10})')
+>>> reobj2.search(str4)
+<_sre.SRE_Match object; span=(81, 100), match='phone no 9972566596'>
+>>> reobj3=re.compile(r'(\w+) (\w+) ([0-9]{3,10})')
+>>> reobj3.search(str4)
+<_sre.SRE_Match object; span=(30, 42), match='House no 308'>
+>>> reobj3.findall(str4)
+[('House', 'no', '308'), ('phone', 'no', '9972566596')]
+>>> reobj3.findall(str4).groups()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'groups'
+>>> reobj3.findall(str4).group()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'group'
+>>> reobj3.search(str4).groups()
+('House', 'no', '308')
+>>> reobj3.search(str4).group()
+'House no 308'
+>>> reobj3.search(str4).group(0)
+'House no 308'
+>>> reobj3.search(str4).group(1)
+'House'
+>>> reobj3.search(str4).group(2)
+'no'
+>>> reobj3.search(str4).group(3)
+'308'
+>>> reobj3.sub(r'\3 \2 \1', str4)
+'My name is Sankar Ramalingam, 308 no House. I am teaching Python for students my 9972566596 no phone'
+>>> str5="Sankar Ramalingam"
+>>> reobj5=re.compile(r'(\w+) (\w+)')
+>>> reobj5.sub(r'\2 \1', str5)
+'Ramalingam Sankar'
+>>> reobj6=re.compile(r'?P<grp1>(\w+) ?P<grp2>(\w+)')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib64/python3.5/re.py", line 224, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib64/python3.5/re.py", line 293, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib64/python3.5/sre_compile.py", line 536, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib64/python3.5/sre_parse.py", line 829, in parse
+    p = _parse_sub(source, pattern, 0)
+  File "/usr/lib64/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state, nested + 1))
+  File "/usr/lib64/python3.5/sre_parse.py", line 638, in _parse
+    source.tell() - here + len(this))
+sre_constants.error: nothing to repeat at position 0
+>>> reobj6=re.compile(r'?P<'grp1'>(\w+)')
+  File "<stdin>", line 1
+    reobj6=re.compile(r'?P<'grp1'>(\w+)')
+                               ^
+SyntaxError: invalid syntax
+>>> reobj6=re.compile(r'?P<grp1>(\w+)')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib64/python3.5/re.py", line 224, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib64/python3.5/re.py", line 293, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib64/python3.5/sre_compile.py", line 536, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib64/python3.5/sre_parse.py", line 829, in parse
+    p = _parse_sub(source, pattern, 0)
+  File "/usr/lib64/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state, nested + 1))
+  File "/usr/lib64/python3.5/sre_parse.py", line 638, in _parse
+    source.tell() - here + len(this))
+sre_constants.error: nothing to repeat at position 0
+>>> reobj6=re.compile('?P<grp1>(\w+)')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib64/python3.5/re.py", line 224, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib64/python3.5/re.py", line 293, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib64/python3.5/sre_compile.py", line 536, in compile
+    p = sre_parse.parse(p, flags)
+  File "/usr/lib64/python3.5/sre_parse.py", line 829, in parse
+    p = _parse_sub(source, pattern, 0)
+  File "/usr/lib64/python3.5/sre_parse.py", line 437, in _parse_sub
+    itemsappend(_parse(source, state, nested + 1))
+  File "/usr/lib64/python3.5/sre_parse.py", line 638, in _parse
+    source.tell() - here + len(this))
+sre_constants.error: nothing to repeat at position 0
+>>> reobj6=re.compile('(?P<grp1>\w+)')
+>>> reobj6.sub(str5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Required argument 'string' (pos 2) not found
+>>> reobj6.search(str5)
+<_sre.SRE_Match object; span=(0, 6), match='Sankar'>
+>>> reobj6.search(str5).group('grp1')
+'Sankar'
+>>> reobj6=re.compile('(?P<grp1>\w+) (?P<grp2>\w+)')
+>>> reobj6.search(str5).group('grp1')
+'Sankar'
+>>> reobj6.search(str5).group('grp2')
+'Ramalingam'
+>>> reobj6.search(str5).group('grp2')
+
+
+

@@ -1,0 +1,52 @@
+Special characters: * $ ^ ! + ? .
+
+Escape chars - "\"
+
+Raw string - To escape special meaning of back slash(\) and
+special sequence with "\n", "\t" and "\r" 
+
+print("One Line comment \r Two ")
+print(r"One Line comment \r Two ")
+
+re.search('\\\\\\\\', r'this is my \\ line /')
+re.search(r'\\\\', r'this is my \\ line /')
+re.search(r'\\\\', 'this is my \\ line /')
+re.search(r'\\\\', 'this is my \\ line /')
+
+re.search(r'\t', "this is \t my raw \n string")
+
+re.search(r'\n', "this is \t my raw \n string")
+
+print(r"this is \t my raw \n string")
+
+re.search(r'\\n', "this is \t my raw \n string")
+
+re.search(r'\\n', r"this is \t my raw \n string")
+
+print(r"this is my \\ line /")
+
+print("this is my \\ line /")
+
+print("this is my raw \t")
+
+print("this is my raw \t")
+print(r"this is my raw \t")
+
+print("this is \t my raw \n string")
+print(r"this is \t my raw \n string")
+
+re.findall("[a-z]+", "this is my word" )
+
+re.findall("\w+", "this is my word" )
+
+re.findall("\W+", "this is my word" )
+
+re.findall("[0-9]+", "this 7878is 990999my word7798798 " )
+
+re.findall("\d+", "this 7878is 990999my word7798798" )
+
+re.findall("\W+", "this 7878is 990999my word7798798" )
+
+re.findall("9{3,}", "this 7878is 990999my word779999vvv ddd9909998798 " )
+
+

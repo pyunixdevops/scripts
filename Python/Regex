@@ -1,0 +1,40 @@
+Regular expression:
+
+Library re:
+
+re is an object
+
+
+re.match
+re.find
+re.findall
+
+
+
+filter and map - returns an object. Change it to list or tuple
+
+
+
+
+RxObj = re.compile(r'abcxyz')
+
+re.match - matches only from the start.
+
+S=('qwre', 'qwqw', 'asss', 'aqwqw')
+x=list(map(len(), S))
+
+
+>>> print(a)
+['qwre', 'qwqw', 'asss', 'aqwqw']
+>>> print(S)
+('qwre', 'qwqw', 'asss', 'aqwqw')
+
+
+
+mo=list(map(lambda t: re.match(r'qw', t), S))
+
+
+re.search - will match from all places in the string. It matches start as well as in the middle.
+
+
+

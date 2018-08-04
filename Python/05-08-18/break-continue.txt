@@ -1,0 +1,20 @@
+pass:
+ - to print a null value.
+
+continue:
+ - to skip the subsequent statements and continue from the while or for loop.
+ - used inside for or while loop
+ - it continues back from the next value in the loop
+
+break:
+ - to exit the control of while or for loop.
+ - used inside for or while loop
+ - it exits from the innermost for or while loop
+
+return:
+ - to exit from the function
+ - it returns value from the function
+ - should be used only inside a function
+
+
+ 

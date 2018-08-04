@@ -1,0 +1,31 @@
+re - Regular Expression module.
+
+import re
+
+re.compile: Compiles a pattern and saves as re object.
+ - patt1=re.compile(pattern) ; x=10 ; print(x)
+ - returns compiled object patt1.
+ - same as writing function or declaring a variable.
+ - can be reused by calling the object
+ - Use patt1.method() to call the object(dot notation call).
+ - usually passed to search, match, findall and finditer
+
+re.match: 
+ - search only at start of the string
+ - returns a match object with span and match, if found
+
+re.fullmatch: 
+ - search only for the full string/pattern
+ - returns a match object with span and match, if found
+
+re.search:
+ - search anywhere within the string
+ - returns a match object with span and match, if found
+
+re.findall:
+ - returns a *list* of matches
+ - it returns the actual matches, not the match object.
+
+re.finditer:
+ - returns a list of match objects
+ - it doesn't return the actual matches, only the match object.

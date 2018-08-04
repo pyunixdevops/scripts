@@ -1,0 +1,105 @@
+\b - word boundary
+str2="Thisisnotthe actualword and this is the actual word"
+str5="""Thisis\notthe actualword a\nd this is the actual word
+This is my new line with enter key \n this not a new line\n MY one more new line in line
+THis is second new lines"""
+reobj=re.compile('\bactual\b')
+reobj=re.compile(r'(\w+) (\bactual\b)')
+reobj=re.compile(r'\w+ \bactual\b')
+
+reobj.sub(r'\2 \1', str2)
+
+m.group(0,1,2)
+str3="Sankar Ramalingam"
+reobj.sub(r'\2 \1', str3)
+
+>>> reobj=re.compile(r'(\w+) (\b.*\b)')
+>>> reobj.sub(r'\2 \1', str3)
+'Ramalingam Sankar'
+>>> reobj=re.compile(r'(.*) (.*)')
+>>> reobj.sub(r'\2 \1', str3)
+'Ramalingam Sankar'
+>>> reobj=re.compile('(.*) (.*)')
+>>> reobj.sub(r'\2 \1', str3)
+'Ramalingam Sankar'
+
+
+>>> reobj=re.compile('.*', re.DOTALL)
+>>> reobj.search(str5)
+<_sre.SRE_Match object; span=(0, 163), match='Thisis\notthe actualword a\nd this is the actual >
+>>> reobj=re.compile('.*')
+>>> reobj.search(str5)
+<_sre.SRE_Match object; span=(0, 6), match='Thisis'>
+
+
+str5="Thisis the new line 01\nThis is not the newline-01 otthe actualword a\nThis is not newline-02the actual word\nThis is my not new line-03 with enter key \n this not a new line\n MY one more new line in line\nTHis is second new lines"
+
+>>> reobj=re.compile(r'^T[a-z]+', re.M)
+>>> reobj.findall(str5)
+['Thisis', 'This', 'This', 'This']
+>>> reobj=re.compile('^T[a-z]+ [a-z]+', re.M)
+>>> reobj.findall(str5)
+['Thisis the', 'This is', 'This is', 'This is']
+>>> reobj=re.compile('^T[a-z]+ [a-z]+')
+>>> reobj.findall(str5)
+['Thisis the']
+
+>>> str6="this is my new\nlineaasaaa asa"
+>>> reobj=re.compile('^[a-z]+ [a-z]+', re.M)
+>>> reobj.findall(str6)
+['this is', 'lineaasaaa asa']
+
+
+
+\B - not a word boudary
+
+
+
+
+
+
+
+
+
+
+
+
+re.split()
+re.sub()
+re.subn()
+
+Name the group.
+Number of groups and its numbers
+Hoow to use "^" inside []
+
+
+m='caaat'
+re.search('ca*', m)
+m='cotaaat'
+re.search('ca*', m)
+re.search('ca+', m)
+
+a1='^%&tasaaaASASa12345676nmIUIUnm232323oooUUYYo999099'
+a2='^%&tasaaaASAS12345676nmIUIUnm232323oooUUYYo999099'
+
+co1=re.compile('[a-z]+[0-9]+')
+co2=re.compile('[a-z]*[0-9]+')
+
+co1.findall(a1)
+co2.findall(a2)
+co1.findall(a2)
+co2.findall(a1)
+
+b="my name is caat or cat, but I am called Caaat"
+
+nco1=re.compile('caa*t')
+nco2=re.compile('caa*t', re.I)
+nco3=re.compile('caa+t')
+nco4=re.compile('caa+t', re.I)
+nco1.findall(b)
+nco2.findall(b)
+nco3.findall(b)
+nco4.findall(b)
+
+
+
