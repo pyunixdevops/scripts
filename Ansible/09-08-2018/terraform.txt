@@ -1,0 +1,9 @@
+# Install terraform in your machine.
+
+- Copy the terraform zip file and unzip it in /usr/local/bin/
+- Run "terraform init"
+- Then, copy the .tf file to your directory
+- Copy the Digital ocean token to $YOUR_TOKEN
+- Create ssh key finger print to $SSH_KEY_GEN_OUT_-MD5.
+- Make sure you remove the md5 from the ssh key finger print.
+
