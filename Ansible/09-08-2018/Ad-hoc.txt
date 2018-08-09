@@ -1,0 +1,103 @@
+
+Ansible docs and module information:
+
+ansible-doc $mod_name -> to get the usage of the module and its various options.
+for eg:
+
+ansible-doc yum |more
+
+ansible-doc -l -> list all the modules
+
+ansible-doc -l |grep shell
+
+
+## Inventory file info..
+
+root@Skoruz-SankarR:# cat my_hosts 
+[ans_server]
+159.89.166.1
+
+[ans_client]
+159.89.170.151
+159.89.170.129
+159.89.168.250
+
+[rhel_cent]
+159.89.170.129
+159.89.170.151
+
+[ubuntu]
+159.89.166.1
+159.89.168.250
+
+## Using non-default inventory files: Use "-i" option to pass the inventory file
+
+ansible Ad-hoc commands:
+- Use ansible command-line
+- To achieve a task very quickly... like reboot, check release version and ping
+- Use command/shell module
+
+ansible ubuntu -m raw -a "apt-get install python -y" -i my_hosts 
+ansible rhel_cent -m raw -a "yum install python -y" -i my_hosts
+## Raw module:
+- Arguments given to raw are run directly through the configured remote shell(rsh).
+- Standard output, error output and return code are returned when available.
+- There is no change handler support for this module.
+- This module does not require python on the remote system, much like the script module.
+- Executes a low-down and dirty SSH command, not going through the module subsystem
+- To install Python to network interfaces like switches and routers
+
+
+#########################################################
+Ansible playbook for installing python on client boxes.
+#########################################################
+- hosts: all
+  gather_facts: False
+  
+  pre_tasks:
+  - name: install python 2
+    raw: test -f /usr/bin/python || (apt -y update && apt install -y python-minimal)
+#########################################################
+
+------
+ansible_python_interpreter: /usr/bin/python3
+------
+
+ansible all -l rhel_cent -m raw -a "yum install python python-simplejson -y" -i my_hosts
+ansible all -l rhel_cent,ans_client -m raw -a "yum install python python-simplejson -y" -i my_hosts
+#########################################################
+
+ansible all -l ubuntu -m raw -a "apt-get install python python-simplejson -y" -i my_hosts
+ansible all -l ubuntu,ans_server -m raw -a "apt-get install python python-simplejson -y" -i my_hosts
+
+ansible all -m shell -a "python -V" -i my_hosts
+
+ansible all -a "python -V" -i my_hosts
+## -m shell is equivalent to running a shell command.
+## So, we need not use -m shell. If you don't mention any module,
+## then, it will use shell module to run the command on remote m/c
+
+ansible all -m copy -a "src=/etc/hosts dest=/tmp/hosts.new" -i my_hosts
+
+ansible all -m shell -a "ls /tmp/hosts.new" -i my_hosts
+ansible all -m shell -a "cat /tmp/hosts.new" -i my_hosts
+
+## Look at above explanation for Shell module.
+ansible all -a "ls /tmp/hosts.new" -i my_hosts
+ansible all -a "cat /tmp/hosts.new" -i my_hosts
+
+ansible all -m shell -a "yum install -y libselinux-python" -i my_hosts
+ -- This one was required on Fedora28, as an extra step
+ -- Copying files require some selinux permissions
+
+ansible rhel_cent -m yum -a "name=httpd state=present" -i my_hosts
+ansible rhel_cent -m yum -a "name=httpd state=absent" -i my_hosts
+ansible rhel_cent -m yum -a "name=httpd state=latest" -i my_hosts
+ansible rhel_cent -m package -a "name=httpd state=latest" -i my_hosts
+ansible rhel_cent -m package -a "name=httpd state=present" -i my_hosts
+ansible rhel_cent -m package -a "name=httpd state=absent" -i my_hosts
+
+ansible ubuntu -m apt -a "name=apache2 state=present" -i my_hosts
+ansible ubuntu -m apt -a "name=apache2 state=absent" -i my_hosts
+ansible ubuntu -m apt -a "name=apache2 state=latest" -i my_hosts
+

@@ -1,0 +1,17 @@
+- hosts: test1, test2
+  tasks:
+  - name: Install packages
+    package:
+      name: ntpdate
+      state: absent
+
+  - name: copy files
+      copy:
+      notify:
+        - startservice
+
+  handlers:
+    - name: startservice
+      service:
+        name: httpd
+        state: restarted

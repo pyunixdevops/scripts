@@ -1,0 +1,82 @@
+>>> print("this is my \\ line /")
+this is my \ line /
+>>> xyz="this is my \\ line /"
+>>> xyz
+'this is my \\ line /'
+>>> print("this is my \\ line /")
+this is my \ line /
+>>> print(r"this is my \\ line /")
+this is my \\ line /
+>>> re.search(r'\\\\', 'this is my \\ line /')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 're' is not defined
+>>> import re
+>>> re.search(r'\\\\', 'this is my \\ line /')
+>>> re.search(r'\\', 'this is my \\ line /')
+<_sre.SRE_Match object; span=(11, 12), match='\\'>
+>>> re.search(r'\\\\', r'this is my \\ line /')
+<_sre.SRE_Match object; span=(11, 13), match='\\\\'>
+>>> re.search('\\\\', r'this is my \\ line /')
+<_sre.SRE_Match object; span=(11, 12), match='\\'>
+>>> re.search(r'\\\\', r'this is my \\ line /')
+>>> re.search(r'\\\\', r'this is my \\ line /')
+KeyboardInterrupt
+>>> print("this is my \\ line /")
+this is my \ line /
+>>> print(r"this is my \\ line /")
+this is my \\ line /
+>>> re.search(r'\\', r'this is my \\ line /')
+<_sre.SRE_Match object; span=(11, 12), match='\\'>
+sre_constants.error: bad escape (end of pattern) at position 0
+>>> re.search('\\\\', r'this is my \\ line /')
+<_sre.SRE_Match object; span=(11, 12), match='\\'>
+>>> 
+>>> print(r"this is \t my raw \n string")
+this is \t my raw \n string
+>>> print("this is \tmy raw \n string")
+this is 	my raw 
+ string
+>>> re.search(r'\\n', r"this is \t my raw \n string")
+<_sre.SRE_Match object; span=(18, 20), match='\\n'>
+>>> re.search(r'\\n', "this is \t my raw \n string")
+>>> re.search(r'\n', "this is \t my raw \n string")
+<_sre.SRE_Match object; span=(17, 18), match='\n'>
+>>> re.findall("[a-z]+", "this is my word" )
+['this', 'is', 'my', 'word']
+>>> re.findall("[a-z]+", "this is my word ^%^")
+['this', 'is', 'my', 'word']
+>>> re.findall("[a-z]+", "this is my word ^%^   ")
+['this', 'is', 'my', 'word']
+>>> re.findall("[a-z][A-Z]+", "this is my word ITS MY WORKDDD^%^   ")
+[]
+>>> re.findall("[a-z A-Z]+", "this is my word ITS MY WORKDDD^%^   ")
+['this is my word ITS MY WORKDDD', '   ']
+>>> re.findall("\w+", "this is my word ITS MY WORKDDD^%^   ")
+['this', 'is', 'my', 'word', 'ITS', 'MY', 'WORKDDD']
+>>> re.findall("\w+", "this is my word ITS MY __ WORKDDD^%^   ")
+['this', 'is', 'my', 'word', 'ITS', 'MY', '__', 'WORKDDD']
+>>> re.findall("\W+", "this is my word ITS MY __ WORKDDD^%^   ")
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', '^%^   ']
+>>> re.findall("[0-9]+", "this 7878is 990999my word7798798 " )
+['7878', '990999', '7798798']
+>>> re.findall("\d+", "this 7878is 990999my word7798798 " )
+['7878', '990999', '7798798']
+>>> re.findall("\D+", "this 7878is 990999my word7798798 " )
+['this ', 'is ', 'my word', ' ']
+>>> re.findall("\D+", "this 7878is 990999my word7798798 " )
+['this ', 'is ', 'my word', ' ']
+>>> re.findall("9{3,}", "this 7878is 990999my word779999vvv ddd9909998798 " )
+['999', '9999', '999']
+>>> re.findall("w{3,}", "this 7878is 990999my wwwwordwwww779999vvv ddd9www909998798 " )
+['wwww', 'wwww', 'www']
+>>> re.findall("w{3}", "this 7878is 990999my wwwwordwwww779999vvv ddd9www909998798 " )
+['www', 'www', 'www']
+>>> a=10
+>>> b=20
+>>> if a < b:
+...     pass
+... else:
+...     print("aaa")
+... 
+

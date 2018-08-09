@@ -1,0 +1,36 @@
+Senior Quality Engineering Developer, App Defense
+Senior Quality Engineering Developer, App Defense
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+l1=[1,2,3,4,45,56,6,6]
+print([x for x in set(l1)  if l1.count(x) > 1])
+
+l1=[1,0,1,0,0,0,1,1,0,1]
+
+l2=[1,1,0,1,0,0,1,0,1]
+
+l1 = [1,0,1,0,1,0]
+
+l1=[1,0,1,0,1,0,1,0,1,0]
+
+def func1(l1):
+    my_len=len(l1)
+    nof_ones=l1.count(1)
+    nof_zeros=l1.count(0)
+    swaps=abs(nof_ones-nof_zeros)
+    return swaps
+    
+    
+print(func1(l1))
+
+l2=[]
+def func2(num):
+    x=num//2
+    y=num%2
+    l2.append(y)
+    if x > 1:
+        return func2(x)
+    return l2
+    
+print(func2(10))
+    

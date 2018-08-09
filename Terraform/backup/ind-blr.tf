@@ -2,9 +2,8 @@
 ## ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'
 
 provider "digitalocean" {
-token = "73b51057476b8e02388b8371085de16fbb8f09670267b4b8d3545a5200d98528"
+token = "131ef6b8955717022b71a08e9312a8bf74ad070bf7c72eb28d1157c4d9ab1c60"
 }
-
 
 resource "digitalocean_droplet" "web1" {
 image = "ubuntu-18-04-x64"

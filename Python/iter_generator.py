@@ -13,6 +13,7 @@ generator2 = (i*i for i in range(1,11))
 print(generator1)
 print(generator2)
 
+"""
 class Squares(object):
     def __init__(self, start, stop):
        self.start = start
@@ -29,9 +30,10 @@ iterator1 = Squares(5, 15)
 
 print(iterator1)
 
-
 def a_function():
-    """just a function definition with yield in it"""    
+"""
+"""
+just a function definition with yield in it"""    
     yield
 
 print(type(a_function))
@@ -45,7 +47,6 @@ import collections, types
 print(issubclass(collections.Iterator, collections.Iterable))
 print(isinstance(a_generator, collections.Iterator))
 
-"""
 Generators:
 
 Python’s generators provide a convenient way to implement the iterator protocol. If a container object’s __iter__() method is implemented as a generator, it will automatically return an iterator object (technically, a generator object) supplying the __iter__() and next() [__next__() in Python 3] methods. More information about generators can be found in the documentation for the yield expression.
@@ -93,5 +94,5 @@ def foo():
 f = foo()
 print(f.next())
 print(f.next())
-
+"""
 

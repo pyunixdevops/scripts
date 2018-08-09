@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - dnf:
+        name: vim, tmux
+        state: latest
+    - yum:
+        name: httpd
+        state: latest
+    - service:
+        name: sshd
+        state: running

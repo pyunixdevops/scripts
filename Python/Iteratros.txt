@@ -1,0 +1,50 @@
+Sankar Ramalingam <rshankar78@gmail.com>
+	
+Jul 16, 2018, 12:13 PM
+	
+to Sankar, aishu7812, Intekhab, nitin, amithadineshcta989, mukesh.ora, hashim, abhay2011
+Hi All,
+
+Please read about this...
+
+Iterable:
+ - Which contains more than one item, can be Indexed or Unindexed.
+ - You can use "in" key word to check if an item or substr is in the iterable.
+ - Magical methods used are : __contains__ and __iter__.
+ - Indexed will have these magical methods : __getitem__ and __getattribute__.
+ - Unindexed will have only __getattribute__, not __getitem__.
+ - For dict, you will still see __getitem__, since you can get the value from key.
+ - So, __getitem__ will work based on index as well as key.
+ - Are stateless objects, which cannot remember the values from memory.
+ - Eg: use of readline() method, which will read the next line.
+ - However, using iter() built-in function(b-in func), we can convert them to stateful.
+ - The "for" loop also converts the iterable to an Iterator by applying iter() b-in func.
+
+Iterator:
+ - An iterable can be converted to an Iterator using __iter__() method or iter() b-in func.
+ - For eg: x=[1,2,3,4] is an iterable.
+ - Calling y=iter(x) or y=x.__iter__(), will convert x to an Iterator.
+ - To check if its an iterator... use b-in func next(y) or y.__next__() to loop through.
+
+Real time eg:
+ - Iterable:
+   - People waiting for interview, standing in a queue(ordered) or
+   - Group of people in a room(unordered).
+   - So, its just the data collection which we have in a variable.
+
+ - Iterator:
+   - Call the People for interview one by one.
+   - We will call them by person name incase of unordered, use of b-in func next().
+   - We will call them by position in case of Ordered, use of b-in func next().
+   - Stop the interview process(StopIteration) after reaching the last person.
+   - So, the process of converting the data for further operation/execution.
+
+Refer - https://www.programiz.com/python-programming/iterator
+
+
+return -> It will return the value.
+
+when/where can you use return keyword? -> called only inside the function.
+what happens when you call return? -> It exits from the function.
+
+

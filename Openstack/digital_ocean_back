@@ -1,0 +1,271 @@
+    1  mkdir /export
+    2  cd /export/
+    3  ls
+    4  df -h
+    5  free -m
+    6  git clone https://github.com/discoposse/terraform-samples
+    7  cd terraform-samples/DigitalOcean/devstack/
+    8  ls
+    9  cd files/
+   10  ls
+   11  vim devstack-install.sh 
+   12  vim ~/.bashrc 
+   13  . ~/.bashrc 
+   14  ls
+   15  pwd
+   16  ls
+   17  chmod +x devstack-install.sh 
+   18  ./devstack-install.sh 
+   19  ps -eaf |more
+   20  vim /var/log/cloud-init-output.log
+   21  vim /var/log/cloud-init.log 
+   22  vim /var/log/cloud-init-output.log
+   23  vim /var/log/cloud-init.log 
+   24  ifconfig 
+   25  ifconfig -I
+   26  hostname -I
+   27  cd /export/
+   28  ls
+   29  cd terraform-samples/DigitalOcean/devstack/files/
+   30  ls
+   31  vim devstack-install.sh 
+   32  ls /home/
+   33  vim devstack-install.sh 
+   34  ls /tmp/
+   35  ls /tmp/devstack/
+   36  ls /tmp/devstack/stack.sh 
+   37  vim /tmp/devstack/stack.sh 
+   38  ls /home/
+   39  ssh-keygen -t rsa
+   40  vim /tmp/devstack/stack.sh 
+   41  cat /root/.ssh/id_rsa.pub 
+   42  yum install ansible
+   43  apt-get install ansible
+   44  ansible --version
+   45  pwd
+   46  cd /export/
+   47  ls
+   48  vim install.sh
+   49  chmod +x install.sh 
+   50  ./install.sh 
+   51  ls
+   52  vim /etc/ansible/hosts 
+   53  ansible -m ping all
+   54  ansible all -m raw ping 
+   55  ansible hostgrp1 -m raw "yum install python" 
+   56  ansible hostgrp1 -m raw "pkg=python state=present"
+   57  ansible hostgrp1  raw "pkg=python state=present"
+   58  ansible hostgrp1 -m raw -a "pkg=python state=present"
+   59  ssh 206.189.128.18
+   60  less /etc/ansible/hosts 
+   61  ssh 206.189.136.38
+   62  less /etc/ansible/hosts 
+   63  ssh 206.189.132.62
+   64  ansible hostgrp1 -m raw -a "pkg=python state=present"
+   65  ansible hostgrp1 -m raw ping
+   66  ansible hostgrp1 ping
+   67  ansible all ping
+   68  ansible all -m ping
+   69  ansible all -m raw -a ping
+   70  ansible all -m raw -a ping -i 2 -t1
+   71  #ansible hostgrp1 -m raw -a "pkg=python state=present"
+   72  less /etc/ansible/hosts 
+   73  ansible hostgrp2 -m raw -a "pkg=python state=present"
+   74  ansible hostgrp1 -m raw -a "pkg=python state=present"
+   75  ansible hostgrp1 -m raw -a "pkg=python3 state=present"
+   76  ansible all -m ping
+   77  ansible hostgrp1 -m raw  "yum -y install python"
+   78  ansible hostgrp1 -m raw -a "yum -y install python"
+   79  ansible hostgrp1 -m raw -a "apt -y install python"
+   80  ansible all -m ping
+   81  less /etc/ansible/hosts 
+   82  cat > /tmp/ip_clients < EOF
+   83  $IP_ANS_CLIENT1
+   84  $IP_ANS_CLIENT2
+   85  $IP_ANS_CLIENT3
+   86  $IP_ANS_CLIENT4
+   87  EOF
+   88  cat < /tmp/ip_clients > EOF
+   89  ls
+   90  rm EOF
+   91  ls /tmp/ip_clients 
+   92  ls -l /tmp/ip_clients 
+   93  cat < /tmp/ip_clients >> EOF
+   94  cat > /tmp/ip_clients << EOF
+   95  asas
+   96  EOF
+   97  ls /tmp/ip_clients 
+   98  ls -l /tmp/ip_clients 
+   99  uname -a
+  100  free -m
+  101  ansible all -m ping
+  102  reboot
+  103  ansible localhost -m debug -a 'var=groups'
+  104  traceroute google.com -n
+  105  apt-get install -y traceroute
+  106  traceroute google.com -n
+  107  traceroute google.co.in -n
+  108  traceroute 172.16.5.1
+  109  ping 172.16.5.1
+  110  ping 106.51.122.117
+  111  traceroute 106.51.122.117
+  112  traceroute 106.51.122.118
+  113  traceroute skoruz.com
+  114  nslookup skoruz.com
+  115  host skoruz.com
+  116  host mail.skoruz.com
+  117  traceroute 100.32.201.164
+  118  nslookup mail.skoruz.com
+  119  nslookup skoruz.com
+  120  whatis 
+  121  whatis myip
+  122  whatis my ip
+  123  traceroute skoruz.com 80
+  124  tcptraceroute skoruz.com 80
+  125  tcptraceroute google.com -n
+  126  traceroute google.com -n
+  127  cd /export/
+  128  ls
+  129  mkdir Openstack
+  130  cd op
+  131  cd Openstack/
+  132  wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+  133  vim /root/.ssh/authorized_keys 
+  134  pwd
+  135  passwd 
+  136  netstat -nlp
+  137  ls
+  138  cd /root/
+  139  ls
+  140  ls -al 
+  141  cd /
+  142  ls
+  143  find / -name "*rc"
+  144  #find / -name "*rc"
+  145  cd /export/Openstack/
+  146  ls
+  147  vim keystone_adminrc
+  148  openstack image list
+  149  source keystone_adminrc 
+  150  openstack image list
+  151  vim keystone_adminrc
+  152  source keystone_adminrc 
+  153  openstack image list
+  154  mysql
+  155  grep mysql /etc/keystone/keystone.conf
+  156  mysql -u root -popenstack-do
+  157  ###mysql -u root -popenstack-do
+  158  vim keystone_adminrc
+  159  source keystone_adminrc 
+  160  openstack image list
+  161  vim keystone_adminrc
+  162  source keystone_adminrc 
+  163  openstack image list
+  164  vim keystone_adminrc
+  165  source keystone_adminrc  ; openstack image list
+  166  vim keystone_adminrc ; source keystone_adminrc  ; openstack image list
+  167  pwd
+  168  ls
+  169  vim keystone_adminrc 
+  170  netstat -nlp |grep -i 5000
+  171  netstat -nlp |grep -i 500
+  172  netstat -nlp |grep -i 50
+  173  keystone-wsgi-admin 
+  174  netstat -nlp |grep -i 80
+  175  openstack image create "cirros"   --file cirros-0.3.4-x86_64-disk.img   --disk-format qcow2 --container-format bare   --public
+  176  vim keystone_adminrc 
+  177  . keystone_adminrc 
+  178  openstack image create "cirros"   --file cirros-0.3.4-x86_64-disk.img   --disk-format qcow2 --container-format bare   --public
+  179  vim keystone_adminrc 
+  180  . keystone_adminrc 
+  181  openstack image create "cirros"   --file cirros-0.3.4-x86_64-disk.img   --disk-format qcow2 --container-format bare   --public
+  182  vim keystone_adminrc 
+  183  . keystone_adminrc 
+  184  openstack image create "cirros"   --file cirros-0.3.4-x86_64-disk.img   --disk-format qcow2 --container-format bare   --public
+  185  vim keystone_adminrc 
+  186  openstack image create "cirros"   --file cirros-0.3.4-x86_64-disk.img   --disk-format qcow2 --container-format bare   --public
+  187  . keystone_adminrc 
+  188  openstack image create "cirros"   --file cirros-0.3.4-x86_64-disk.img   --disk-format qcow2 --container-format bare   --public
+  189  vim keystone_adminrc 
+  190  openstack image list
+  191  . keystone_adminrc 
+  192  openstack image list
+  193  netstat -nlp |grep -i 353
+  194  netstat -nlp |grep -i 35
+  195  netstat -nlp |grep -i keysto
+  196  netstat -nlp |grep -i neut
+  197  vim keystone_adminrc 
+  198  . keystone_adminrc 
+  199  openstack image list
+  200  ls
+  201  cp keystone_adminrc keystone_adminrc.bak_orig
+  202  vim keystone_adminrc
+  203  vim keystone_adminrc ; source keystone_adminrc  ; openstack image list
+  204  vim keystone_adminrc
+  205  vim keystone_adminrc ; source keystone_adminrc  ; openstack image list
+  206  mysql -u root -p openstack-do
+  207  grep mysql /etc/keystone/keystone.conf
+  208  mysql -u root -popenstack-do
+  209  vim keystone_adminrc ; source keystone_adminrc  ; openstack image list
+  210  #openstack image create "cirros" --file    --disk-format qcow2 --container-format bare   --public
+  211  LS
+  212  ls
+  213  openstack image create "cirros" --file cirros-0.3.4-x86_64-disk.img  --disk-format qcow2 --container-format bare  --public my_cirros_test
+  214  openstack image create  --file cirros-0.3.4-x86_64-disk.img  --disk-format qcow2 --container-format bare  --public my_cirros_test
+  215  openstack image list
+  216  openstack network list
+  217  openstack server list
+  218  openstack service list
+  219  openstack --version
+  220  cat /etc/openstack/clouds.yaml 
+  221  mysql -u root -popenstack-do
+  222  vim keystone_adminrc ; source keystone_adminrc  ; openstack image list
+  223  ; source keystone_adminrc  ; openstack image list
+  224  # source keystone_adminrc  ; openstack image list
+  225  cd /export/Openstack/
+  226  ls
+  227  # source keystone_adminrc  ; openstack image list
+  228  openstack service list
+  229  openstack service 
+  230  ovs vsctl-show
+  231  ovs-vsctl show
+  232  mysql -u root -popenstack-do
+  233  ifconfig 
+  234  ip a
+  235  ifconfig 
+  236  ovs-vsctl show
+  237  ovs-vsctl show | less
+  238  pwd
+  239  ps -eaf |grep nova
+  240  lsof -p 3157 -n
+  241  vi /proc/3157/limits 
+  242  ulimit -a
+  243  su -c nova "ulimit -a"
+  244  su - c nova "ulimit -a"
+  245  su - nova -c "ulimit -a"
+  246  vi /etc/security/limits.conf 
+  247  ls /etc/security/limits.d
+  248  vi /etc/security/limits.conf 
+  249  fg
+  250  openstack compute service list
+  251  cd /export/Openstack/
+  252  source keystone_adminrc
+  253  openstack compute service list
+  254  ls
+  255  cd /ex
+  256  cd /export/
+  257  ls
+  258  vim install.sh 
+  259  cd terraform-samples/
+  260  ls
+  261  ls DigitalOcean/
+  262  ls de
+  263  l
+  264  cd dev
+  265  ls
+  266  ls AWS/
+  267  cd ../
+  268  ls
+  269  ls Openstack/
+  270  history 
+
