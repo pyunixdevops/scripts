@@ -18,7 +18,6 @@ image = "ubuntu-18-04-x64"
 name = "AnsServer-ubun-18"
 region = "blr1"
 size = "8gb"
-ssh_keys = ["3f:d6:e7:08:60:63:c3:6b:d9:2d:35:23:d7:92:82:e2"]
 }
 
 resource "digitalocean_droplet" "AnsClient-fedo-28" {
@@ -26,7 +25,6 @@ image = "fedora-28-x64"
 name = "AnsClient-fedo-28"
 region = "blr1"
 size = "2gb"
-ssh_keys = ["3f:d6:e7:08:60:63:c3:6b:d9:2d:35:23:d7:92:82:e2"]
 }
 
 resource "digitalocean_droplet" "AnsClient-cent-07" {
@@ -34,7 +32,6 @@ image = "centos-7-x64"
 name = "AnsClient-cent-07"
 region = "blr1"
 size = "2gb"
-ssh_keys = ["3f:d6:e7:08:60:63:c3:6b:d9:2d:35:23:d7:92:82:e2"]
 }
 
 resource "digitalocean_droplet" "AnsClient-ubun-18" {
@@ -42,7 +39,6 @@ image = "ubuntu-18-04-x64"
 name = "AnsClient-ubun-18"
 region = "blr1"
 size = "2gb"
-ssh_keys = ["3f:d6:e7:08:60:63:c3:6b:d9:2d:35:23:d7:92:82:e2"]
 }
 
 output "Public_ip" {

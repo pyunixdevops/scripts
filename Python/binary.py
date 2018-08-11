@@ -11,5 +11,5 @@ def func2(num):
         return func2(x)
     return l2
     
-print(func2(10))
+print(func2(21))
 
