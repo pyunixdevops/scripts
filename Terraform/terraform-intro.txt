@@ -1,0 +1,12 @@
+Terraform:
+
+- Developed by Hashicorp
+- Replacement for Vagrant
+  - Popular tool for creating de/test/qa/stage env
+  - Mostly used along with Oracle VirtualBox
+- Automate your infrastructure - IAC
+  - Mutable infrastructure
+  - Immutable infrastructure
+- Written in GoLang
+  - Supports CLI
+  - 
