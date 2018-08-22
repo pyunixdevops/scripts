@@ -1,0 +1,31 @@
+# Setup terraform on your laptop or any VM.
+
+1. Download terraform.
+https://www.terraform.io/downloads.html
+
+2. Unzip the terrform binary under - /usr/local/bin/
+https://turbonomic.com/blog/on-technology/getting-started-with-terraform-for-digital-ocean/
+
+3. Create your provider.tf file with your Cloud provisioner
+- For eg: Digital Ocean cloud, use 'provider "digitalocean"'
+
+4. Create your terraform template file.
+
+5. Run terraform validate
+
+6. Run terraform plan
+
+7. Run terraform apply --auto-approve
+
+8. Run terraform show
+
+9. Run terraform destroy
+
+## Terraform setup to access Digital ocean API access
+## 1. You need API token on Digital ocean
+## 2. Copy public key from your Terraform m/c to Digital ocean->Security->SSH_keys
+## 3. Create API token from API section and copy it to terraform.
+## Ssh key finger print
+## Create API token and copy it to your Terraform
+## ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'
+##################################################################

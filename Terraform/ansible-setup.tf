@@ -1,4 +1,5 @@
 ################################################################## 
+## https://www.terraform.io/downloads.html
 ## Terraform setup to access Digital ocean API access
 ## 1. You need API token on Digital ocean
 ## 2. Copy public key from your Terraform m/c to Digital ocean->Security->SSH_keys
