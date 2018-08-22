@@ -2,6 +2,11 @@
 '.' - any single character. matches exactly one time
 
 '*' - matches 0 or more
+- abh*ay -> abay, abhay, abhhay and so on
+- abh+ay -> abhay, abhhay and so on
+- abh?ay -> abay and abhay. not abhhay.
+- abh.ay -> abhhay, abhyay, abhxay and so on.
+
 
 '+' - matches 1 or more
 
