@@ -1,0 +1,5 @@
+
+
+https://www.virtualbox.org/wiki/Linux_Downloads
+http://mirror.vbctv.in/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso
+http://www.jeramysingleton.com/install-centos-7-minimal-in-virtualbox/

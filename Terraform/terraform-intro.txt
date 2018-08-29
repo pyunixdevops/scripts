@@ -10,3 +10,10 @@ Terraform:
 - Written in GoLang
   - Supports CLI
   - 
+
+Mutable deloyments:
+ - Infrastructure can be modified. Virtual machines can be updated with new packages.
+
+Immutable deployments:
+ - Infrastructure is re-created whenever there is an update for the application.
+ 

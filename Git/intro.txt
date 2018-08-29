@@ -1,0 +1,14 @@
+Source Code Management - SCM tool
+
+Git introduction - global information tracker
+
+Version Control System
+Create github account.
+
+Git basic commands
+
+Git configuration basic
+
+
+
+
