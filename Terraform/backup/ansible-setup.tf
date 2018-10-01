@@ -17,34 +17,34 @@ resource "digitalocean_droplet" "AnsServer-ubun-18" {
 image = "ubuntu-18-04-x64"
 name = "AnsServer-ubun-18"
 region = "blr1"
-size = "8gb"
+size = "4gb"
 }
 
 resource "digitalocean_droplet" "AnsClient-fedo-28" {
 image = "fedora-28-x64"
 name = "AnsClient-fedo-28"
 region = "blr1"
-size = "2gb"
+size = "1gb"
 }
 
 resource "digitalocean_droplet" "AnsClient-cent-07" {
 image = "centos-7-x64"
 name = "AnsClient-cent-07"
 region = "blr1"
-size = "2gb"
+size = "1gb"
 }
 
 resource "digitalocean_droplet" "AnsClient-ubun-18" {
 image = "ubuntu-18-04-x64"
 name = "AnsClient-ubun-18"
 region = "blr1"
-size = "2gb"
+size = "1gb"
 }
 
-output "Public_ip" {
-  value = "${digitalocean_droplet.AnsServer-ubun-18.ipv4_address}"
-}
-
-output "Name_VM" {
-  value = "${digitalocean_droplet.AnsServer-ubun-18.name}"
-}
+#output "Public_ip" {
+#  value = "${digitalocean_droplet.AnsServer-ubun-18.ipv4_address}"
+#}
+#
+#output "Name_VM" {
+#  value = "${digitalocean_droplet.AnsServer-ubun-18.name}"
+##}
