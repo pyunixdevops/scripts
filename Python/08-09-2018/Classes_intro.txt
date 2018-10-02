@@ -1,0 +1,53 @@
+Collection of objects which has similar properties and functionalities
+Grouping together similar objects to One
+
+For eg:
+- Stationaries: Pen, Pencil, Paper, Crayons -- drawing, writing
+- Groceries: 
+- People: 
+- Students:
+- Vehicles:
+- Employees: salary, increment, deveoper, admin
+
+What are most important pieces of programming lang?
+- Data structures
+- Control structures and Condional loops
+- **Functions(built-in functions and user defined functions) - Specific to an Object
+- Exception handling
+- Packages and Modules(similar to #include, source and import)
+- Classes(superset of Functions) - Generic function that can be applied to many similar Objects
+  -- Built-in classes - str, list, tuple and dict
+  -- User defined classes - Grouping functions and attributes
+
+OOP - Object Oriented Programming
+Class(Object)
+
+- Class can be a single object or collection of objects.
+- Organized around objects and its data rather than actions & logic
+- Creating a new class creates a new type of object, allowing new instances of that type to be made
+- It is a mixture of the class mechanisms found in C++ and Modula-3
+- 
+
+- Constructors
+- Methods(functions)
+- Instance creation
+- Method overloading
+- Method overriding
+- 
+
+A constructor is a special type of method which initializes the instance members of the class.
+Constructor can be parameterized and non-parameterized as well.
+Constructor definition executes when we create object of the class. 
+Constructors also verify that there are enough resources for the object to perform any start-up task.
+
+
+
+
+OOP concepts:
+- Abstraction
+- Encapsulation
+- Inheritance: Parent to Child
+- Polymorphism
+  -- Method overriding
+  -- Method overloading
+- 

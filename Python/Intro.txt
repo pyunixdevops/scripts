@@ -1,0 +1,30 @@
+
+Statically typed(Statically declared - Explicit initialization required)
+ - Eg: C, C++ , Java, Golang
+ - Statically typed requires an initialization
+   - int a,b ; a=10, b=30
+ - Data types are associated with variables not values.
+ - Does require a compiler
+ - Type checking during compilation
+ - Compilation would fail if there is an issue
+ - Once a variable type is set, it cannot be changed.
+   - For eg: int a, a=10 -> works. but a="Sankar" -> will fail
+
+Dynamically typed(Dynamically interpreted - No initialization required)
+ - Eg: Python, Perl, Ruby, PHP and JavaScript 
+ - Variables can be declared without initialization
+   - x=10, y=25, z="string2test", m='21', l1=[1,2,3,4]
+ - Data types are associated with variable values.
+ - Identified based on how you represent the data.
+ - Saves time to declare/initialize a variable
+ - Less number of lines
+ - Doesn't require a compiler
+ - Type checking done at runtime(Interpreter lang)
+ - Runs fine as long as the code block is not touched
+ - Assign any kind of data to a variable
+   - For eg: x=10, x="test1", x=[3,4,5] and x={'b':3, 'd':5} -> all are valid
+
+Strongly typed or Strictly typed
+ - Cannot be converted to another data type implicitly
+ - Should explicitly convert them to another data type
+ - 

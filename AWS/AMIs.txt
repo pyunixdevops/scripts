@@ -1,0 +1,9 @@
+Redhat linux - ami-5b673c34
+
+Ubuntu server - ami-00b7e666605d33085
+
+Amazon LInux2 - ami-00b6a8a2bd28daf19
+
+Amazon Linux-latest - ami-0912f71e06545ad88
+
+

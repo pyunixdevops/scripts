@@ -1,0 +1,19 @@
+Terraform is a key player in the DevOps world for defining, launching, and managing
+Infrastructure As Code (IAC) across a variety of cloud and virtualization platforms,
+including AWS, Google Cloud, Digital Ocean and Azure.
+
+Some of the popular tools for IAC includes Chef, Ansible, Saltstack, CloudFormation
+and Terraform. Most of them are Opensource and being developed/supported by active
+communities across the world. However, CloudFormation, which works only with AWS.
+
+Chef, Puppet, Ansible, and SaltStack are all SCM tools, which means they are designed
+to install and manage software on existing servers. CloudFormation and Terraform are
+“Orchestration tools”, which means they are designed to provision the servers themselves,
+leaving the job of installing softwares by other tools like Chef, Ansible and SaltStack.
+
+Configuration management tools such as Chef, Puppet, Ansible, and SaltStack typically
+default to a mutable infrastructure paradigm. For example, if you tell Chef to install
+a new version of OpenSSL, it’ll run the software update on your existing servers and
+the changes will happen in-place.
+
+
