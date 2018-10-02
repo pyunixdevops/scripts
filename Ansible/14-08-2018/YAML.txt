@@ -1,0 +1,21 @@
+YAML - YAML Ain't Markup Language
+
+Somewhat similar to JSON - Java Script Object Notation.
+YAML is a superset of JSON. YAML parsers can understand JSON.
+YAML is more robust and viable data serialization format.
+YAML uses whitespace indentation, which is familiar in Python.
+This is the way to write configuration files.
+Lists and Dicts inside a configuration file.
+
+YAML: Whitespace indentation is necessary for YAML files to be
+interpreted properly. It requires more characters than JSON.
+
+JSON: JSON doesn't use whitespace to represent hierarchy or grouping of data.
+It can easily flattened without whitespace for more compact transport.
+
+JavaScript so clearly dominates the web by a huge margin and JavaScript
+developers prefer using JSON as the data format overwhelmingly along with
+popular web APIs so it becomes difficult to argue using YAML over JSON
+when doing web programming.
+
+

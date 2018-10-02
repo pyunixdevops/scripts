@@ -4,16 +4,11 @@ Library re:
 
 re is an object
 
-
 re.match
 re.find
 re.findall
 
-
-
 filter and map - returns an object. Change it to list or tuple
-
-
 
 
 RxObj = re.compile(r'abcxyz')
