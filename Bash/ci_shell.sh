@@ -11,15 +11,15 @@ repo_name="devops_ci"
 
 clone_repo()
 {
-    if [ -x $repo_name ]; then
+    if [ ! -d $repo_name ]; then
+        echo "Directory $repo_name doesn't exists"
+        echo "Go ahead and clone the repo $repo_name"
+        git clone $github_link/$repo_name
+    else
         echo "Directory $repo_name already exists"
         echo "Go ahead and pull the repo $repo_name"
         cd $repo_name
         git pull $github_link/$repo_name
-    else
-        echo "Directory $repo_name doesn't exists"
-        echo "Go ahead and clone the repo $repo_name"
-        git clone $github_link/$repo_name
     fi
 }
 
