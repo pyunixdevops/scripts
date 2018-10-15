@@ -5,7 +5,7 @@
 # So, you are saying don't consider this as a comment.
 # Execute the first line. It should be an executable and it should be in 1st line.
 
-github_link=""
+github_link="git@github.com:pyunixdevops/devops_ci.git"
 repo_name="devops_ci"
 #work_dir="~/devops"
 
