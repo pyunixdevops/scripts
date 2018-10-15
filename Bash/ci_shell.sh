@@ -11,7 +11,7 @@ repo_name="devops_ci"
 
 clone_repo()
 {
-    if [ -d $repo_name ]; then
+    if [ -x $repo_name ]; then
         echo "Directory $repo_name already exists"
         echo "Go ahead and pull the repo $repo_name"
         cd $repo_name
