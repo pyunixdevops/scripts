@@ -7,38 +7,91 @@
 
 github_link="git@github.com:pyunixdevops/devops_ci.git"
 repo_name="devops_ci"
-#work_dir="~/devops"
+home_dir='/Users/sankartest/export'
 
 clone_repo()
 {
-    if [ -d $repo_name ]; then
-        echo "Directory $repo_name already exists"
-        echo "Go ahead and pull the repo $repo_name"
-        cd $repo_name
-        git pull $github_link/$repo_name
+    if [ $# -ne 1 ]; then
+        echo "Please pass repo_name as \$1"
+        return
+    fi
+
+    if [ -d $home_dir/$repo_name ]; then
+        echo "Directory $home_dir/$repo_name already exists"
+        echo "Go ahead and pull the repo $home_dir/$repo_name"
+        cd $home_dir/$repo_name
+        git pull
     else
-        echo "Directory $repo_name doesn't exists"
-        echo "Go ahead and clone the repo $repo_name"
-        git clone $github_link/$repo_name
+        echo "Directory $home_dir/$repo_name doesn't exists"
+        echo "Go ahead and clone the repo $home_dir/$repo_name"
+        git clone $github_link
     fi
 }
 
 push_changes()
 {
-    message="$1"
-    if [ $# -ne 1 ]; then
-        echo "Please pass on the message as \$1"
+    repo_name="$1"
+    message="$2"
+    if [ $# -ne 2 ]; then
+        echo "Please pass repo_name as \$1 and the message as \$2"
         return
     fi
-    cd $repo_name
-    git add . ; git commit -m "$message"
-    git push -u origin master
 
+    if [ -d $home_dir/$repo_name ]; then
+        cd $home_dir/$repo_name
+        git add . ; git commit -m "$message"
+        git push -u origin master
+        cd $home_dir
+    else
+        echo "The repo $home_dir/$repo_name is not available"
+    fi
+}
+
+deploy()
+{
+    repo_name="$1"
+    echo "Setup the environment using Terraform and deploy using Ansible"
+    cd $home_dir/$repo_name/Shell
+    ./deploy.sh
+}
+
+check()
+{
+    repo_name="$1"
+    echo "Check CI Status..."
+    cd $home_dir/$repo_name/Shell
+    ./check.sh
+}
+
+remove()
+{
+    echo "Destroy the setup..."
+    cd $home_dir/$repo_name/Shell
+    ./remove.sh
+}
+
+update()
+{
+    echo "Destroy the setup..."
+    cd $home_dir/$repo_name/Shell
+    ./update.sh
 }
 
 #push_changes
-clone_repo
-push_changes "My new commit for DevOps Ansible"
+#clone_repo
+#push_changes $home_dir/$repo_name "My new commit for DevOps Ansible"
+
+create_setup()
+{
+#clone_repo $repo_name
+push_changes $repo_name "All required config files for AWS, Terraform and Ansible"
+deploy $repo_name
+}
+
+create_setup
+
+
+
 
 
 
