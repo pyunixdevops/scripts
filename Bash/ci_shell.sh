@@ -5,7 +5,12 @@
 # So, you are saying don't consider this as a comment.
 # Execute the first line. It should be an executable and it should be in 1st line.
 
+# Please change this link
 github_link="git@github.com:pyunixdevops/devops_ci.git"
+
+#Do not change this link
+devops_git="git@github.com:pyunixdevops/devops_ci.git"
+
 repo_name="devops_ci"
 home_dir='/Users/sankartest/export'
 
@@ -24,9 +29,21 @@ clone_repo()
     else
         echo "Directory $home_dir/$repo_name doesn't exists"
         echo "Go ahead and clone the repo $home_dir/$repo_name"
+        cd $home_dir
         git clone $github_link
     fi
 }
+
+copy_files()
+{
+    echo "Copying all files required for devops_ci git repo"
+    cd $home_dir/test_repo
+    git clone $devops_git
+    cd $repo_name ; cp -r Ansible Python Shell Terraform $home_dir/$repo_name
+    cd $home_dir
+    rm -rf $home_dir/test_repo
+}
+
 
 push_changes()
 {
@@ -83,7 +100,8 @@ update()
 
 create_setup()
 {
-#clone_repo $repo_name
+clone_repo $repo_name
+copy_files
 push_changes $repo_name "All required config files for AWS, Terraform and Ansible"
 deploy $repo_name
 }
